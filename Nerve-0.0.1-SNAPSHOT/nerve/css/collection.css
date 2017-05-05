@@ -1,0 +1,205 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	color: #666666;
+}
+.header{                  /*头部*/
+	width: 100%;
+	height: 60px;
+	background-color: #FAA668;
+}
+.head-img{
+	width: 100px;
+	height: 60px;
+	display: inline;
+    float: left;
+}
+.head-img img{  
+	width: 50px;
+	height: 50px;
+	margin-top:5px;
+	}
+
+.link ul li {
+	float: left;
+	padding: 1%;
+	list-style: none;
+	margin-left: 5%;
+}
+.link ul li a{
+	text-decoration: none;
+    color:#fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.loginandexit{
+	float: right;
+	line-height: 40px;
+}
+.login{ 				/*登录*/
+	
+	cursor:pointer;
+}
+.login-success{        /*登录成功*/
+	display: inline-block;
+	display: none;
+}
+.login-hide{
+	z-index: 1;
+	text-align:center;
+	position: absolute;
+	top: 250px;
+    left: 515px;
+}
+
+.content{
+	margin: auto;
+	background:#F3F3F3;
+}
+.area-pre{
+	width: 100%;
+	background-color:#FFFFFF;
+	margin-top: 20px;
+	border: 1px silver solid;
+	 box-shadow: 3px 2px 3px #aaaaaa;
+}
+.area-list{                /*内容框*/
+	padding: 0px 20px;
+}
+.area{
+	max-width: 608px;
+	min-width: 320px;
+    margin: auto;
+}
+.collection-function{
+	border-bottom: 1px silver solid;
+}
+.area-header{             /* 帖子头部*/
+	width: 100%;
+	height: 40px;
+	border-bottom:1px silver solid;
+	position: relative;
+	margin: auto;
+	line-height: 40px ;
+}
+.area-header a{
+    position: relative;
+    top: -10px;
+}
+
+.user-pic{                /*用户头像*/
+	width: 30px;
+	height: 30px;
+	background-color: yellow;
+	display: inline-block;
+	position: relative;
+	border-radius: 100%;
+	
+}
+
+
+
+.area-fun{				/*功能*/
+	width: 100%;
+	height:30px;
+	border-bottom:1px silver solid;
+}
+.area-fun ul li{        
+	float: left;
+	list-style: none;
+	width: 20%;
+	text-align: center;
+}
+.area-fun .ico{
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+}
+.area-fun .grass{
+	background: url(../img/grass.png);
+}
+.area-fun .gold{
+	background: url(../img/gold.png);
+}
+.area-fun .wechat{
+	background: url(../img/wechat.png);
+}
+.area-fun .collection{
+	background: url(../img/collection.png);
+}
+.area-fun .reply{
+	background: url(../img/reply.png);
+}
+.area-fun ul li span{
+	padding-left: 5px;
+    display: inline-block;
+    position: relative;
+    top: -7px;
+    width: 20px;
+}
+.area-load{
+	position:relative;
+	background: rgba(255, 193, 7, 0.25);
+}
+.area-load .l-show{               /*加载更多*/
+	width: 50px;
+	height: auto;
+	position: relative;
+	left:46%;
+}
+.area-load .l-hide{
+	width: 50px;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    left: 46%;
+    top: 5%;
+    display: none;
+}
+.load-hide{          		/*加载内容*/
+	height: 60px;
+	overflow: hidden;
+}
+.area-comment{          /*评论*/
+	display: none;
+}
+.textarea{                    /*评论输入框*/
+	border: 1px #FAA668 solid;
+	resize: none;
+}
+.comment-submit{                             /* 发表*/
+	margin:5px 0px;
+}
+
+.comment-top{          
+	border-bottom: 1px silver solid;
+	width: 100%;
+	margin-top: 10px;
+}
+.comment-reply{                  /* 回复*/
+	margin-top: 10px;
+}
+.cr-text span,p{
+	float: left;
+}
+.user-pren{
+	display: inline-block;
+}
+.user-pren span{    
+	float: right;
+	font-size: 1.8rem;
+}
+
+.footer{
+	border-top: 1px silver solid;
+	height: 100px;
+	margin-top: 50px;
+	text-align: center;
+	color: #666666;
+}
+.f-modile{
+	margin-top: 10px;
+}

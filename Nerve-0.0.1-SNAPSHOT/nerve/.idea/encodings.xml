@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/css/asset.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/css/styles.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/images/dataFree.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/images/dataLoading.gif" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/images/vertical.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/templates/prediction.html" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

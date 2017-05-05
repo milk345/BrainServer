@@ -1,0 +1,31 @@
+
+.create-head{
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.input-node{
+
+}
+.output-node{
+
+}
+.confirmed-item{
+
+}
+#output-list{
+	padding-left: 0;
+}
+#input-list{
+	padding-left: 0;
+}
+#nerve-list{
+	padding-left: 0;
+}
+#addInput{
+
+}
+#addOutput{
+
+}

@@ -1,0 +1,32 @@
+
+<!-- include alertify.css -->
+<link rel="stylesheet" href="././framework/alertifyjs/css/alertify.css">
+
+<!-- include boostrap theme  -->
+<link rel="stylesheet" href="././framework/alertifyjs/css/themes/bootstrap.css">
+<link rel="stylesheet" href="././css/home.css">
+<!-- include alertify script -->
+<script src="././framework/alertifyjs/alertify.js"></script>
+
+<script type="text/javascript">
+    //override defaults
+    alertify.defaults.transition = "slide";
+    alertify.defaults.theme.ok = "btn btn-primary";
+    alertify.defaults.theme.cancel = "btn btn-danger";
+    alertify.defaults.theme.input = "form-control";
+</script>
+
+<div style="margin: 70px" >
+    <div class="home-content"  ng-controller="homeCtrl">
+
+        <h1>应用BP神经网络进行机械参数预测</h1>
+        <p >&nbsp&nbsp&nbsp&nbsp人工神经网络（Artificial Neural Networks，ANN）系统是 20 世纪 40 年代后出现的。它是由众多的神经元可调的连接权值连接而成，具有大规模并行处理、分布式信息存储、良好的自组织自学习能力等特点。</p>
+        <p >&nbsp&nbsp&nbsp&nbsp这引起了我（梁名凯）对于神经网络算法的深厚兴趣，因为我知道，如果能够追寻到人类意识的秘密，那必然是人类文明发展的终极需求，包括永生、梦境、宇宙等等无数先辈为之求索终身的谜题，都将随着人类大脑意识处理技术的发展而被直接或者间接地解决。</p>
+        <p >&nbsp&nbsp&nbsp&nbsp当然，千里之行，始于足下。目前最接近破解意识本源问题的工具便是神经网络算法。这个工具需要注入强大资源以支持其发展，首先要让它要进入寻常百姓家。如今，CNN在图像处理领域得到了优秀成果，RNN在自然语言处理领域得到了非凡佳绩，“参数宝”则是要让神经网络算法进入现代人类文明的支柱：工业领域。目前参数宝支持灵活的BP神经网络，未来，参数宝将引入CNN、RNN乃至更多优秀的神经网络模型及插件，为现代工业系统提供强大的智力支持</p>
+        <p ><a class=" btn btn-info btn-lg   " href="#" role="button" onclick="alertify.alert().
+            set({'transition':'pulse','startMaximized':true, 'message':'Start Maximized: true'}).show();">输入条件参数</a></p>
+    </div>
+</div>
+</div>
+
+

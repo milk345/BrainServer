@@ -1,0 +1,97 @@
+@media screen and (min-width:690px) {
+     .phone-header{        
+	 display: none;
+ }
+ .nav{        /*usernote页面的选项卡*/
+	margin-top: 20px;
+   }
+  .phone-judeg{ 		/*审帖*/
+  	display: none;
+  }
+  
+}
+@media screen and (max-width:690px) {
+	
+      /*.phone-judeg{         
+	background: gold;
+    }
+    .phone-judeg ul li {
+	list-style-type: none;
+	    padding: 10px;
+   }
+   .judeg{
+   	display: none;
+   }*/
+	*{
+		font-size: 1rem;
+	}
+	.link,.sidebar{      /*隐藏pc端的右侧栏*/
+		display: none;
+	}
+  .login{
+  	line-height: 60px;
+  	}
+	.phone-header ul li {     /*手机端导航*/
+		float: left;
+		width: 33%;
+		text-align: center;
+		list-style: none;
+	}
+	.phone-header ul li a {
+		text-decoration: none;
+		font-size: 1rem;
+	}
+	.phone-header ul li img{
+		width: 12px;
+		height: 12px;
+	}
+	 .content { 
+		margin-top: 40px;
+	}
+	.usernote-content{
+		margin-top: 40px;
+	}
+	.area-load .l-show {			/*加载更多*/
+    width: 50px;
+    height: auto;
+    position: relative;
+    left: 42%;
+  }
+  .area-load .l-hide {         
+    width: 50px;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    left: 42%;
+    top: 5%;
+    display: none;
+  }
+    .login-success{
+       margin-top: 10px;
+    }
+}  
+@media screen and (min-width:319px) and (max-width:376px){
+	 .usernote{
+	    padding: 2% 3% 0% 0%;
+	}
+	.nav>li>a{
+	padding: 7px 4px;
+  }
+	}
+@media screen and (min-width:376px) and (max-width:414px){
+	.nav>li>a{
+	padding: 7px 9px;
+  }
+  .usernote{
+  	 padding: 2% 3% 0% 5%;
+  }
+}
+@media screen and (min-width:415px) and (max-width:639px) {
+	.usernote {
+		padding: 2% 3% 0% 5%;
+	}
+
+	.nav > li > a {
+		padding: 10px 11px;
+	}
+}

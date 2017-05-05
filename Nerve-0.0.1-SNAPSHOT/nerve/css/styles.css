@@ -1,0 +1,25 @@
+
+/*以下这些原本是写在推推的html文件头部style标签里的*/
+.form-control:focus{box-shadow:inset 0 1px 1px rgba(0,0,0,.075),1px 1px 10px #ccc;border: 1px solid #ccc;outline: 0;}
+.form-control{
+    display: inline-block;
+}
+
+
+
+.icon-dots {
+    font-size: 27px;
+    color: #6b6b6b;
+}
+.model-item {
+    margin-right: 20px;
+}
+.model-item-selected {
+    /*background: #428BCA !important;*/
+    background:url(../images/vertical.png) 0px center no-repeat !important;
+    margin-right: 20px;
+}
+.model-item-selected >li>a
+{
+    color: #37A8EC !important;
+}

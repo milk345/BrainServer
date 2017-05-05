@@ -1,0 +1,34 @@
+*{
+	padding: 0;
+	margin: 0;
+
+}
+.check-header{
+	color: white;
+	
+}
+.check-content{
+	background-color: #30364B;
+	margin-left: 20px;
+}
+.check{
+
+}
+.check-abstract{
+	border-bottom: 1px silver solid;
+}
+.check-content .text{
+	width: 100%;
+}
+.judeg{
+	background-color: gold;
+	    z-index: 1;
+	   position: fixed;
+	   width: 300px;
+	   top: 50%;
+    }
+.judeg ul li {
+	list-style-type: none;
+	    padding: 10px;
+}
+

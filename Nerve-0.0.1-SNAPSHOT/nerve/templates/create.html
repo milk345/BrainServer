@@ -1,0 +1,57 @@
+<div style="margin: 20px 0 300px 0"  ng-controller="createCtrl">
+	<div class="row" >
+		<div class="col-md-3 " style="text-align: center" >
+			<div class="create-head">输入</div>
+
+
+			<ul id="input-list"  >
+				<li style="list-style:none;margin-bottom: 5px" class="input-node">
+					<button type="button" style="display: none;width: 100px;height: 35px;position: relative;bottom:-3px" class="button button-border button-rounded button-primary"></button>
+					<input type="text" style="display: inline;width: auto" data-AcademyId="" placeholder="填写输入参数名称" class="form-control ">
+					<button type="button" class="btn btn-danger input-node-delete" style="display: none;width: 50px;">删除</button>
+					<button  type="button" class="btn btn-info confirm" style="display: none;width: 50px;">确定</button>
+				</li>
+			</ul>
+			<input id="addInPut"  type="button" class="btn btn-info " value="添加参数" style=" border-radius:2px;">
+		</div>
+
+
+
+		<div class="col-md-3" style="text-align: center">
+			<div class="create-head">输出</div>
+
+
+			<ul id="output-list" >
+				<li  style="list-style:none;margin-bottom: 5px;" class="output-node">
+					<button type="button" style="display: none;width: 100px;height: 35px;position: relative;bottom:-3px" class="button button-border button-rounded button-primary"></button>
+					<input type="text" style="display: inline;width: auto" data-AcademyId="" placeholder="填写输出参数名称" class="form-control">
+					<button  type="button" class="btn btn-danger output-node-delete" style="display: none;width: 50px;">删除</button>
+					<button  type="button" class="btn btn-info confirm" style="display: none;width: 50px;">确定</button>
+				</li>
+			</ul>
+			<input id="addOutPut"  type="button" class="btn btn-info " value="添加参数" style=" border-radius:2px;">
+		</div>
+
+
+		<div class="col-md-2" style="text-align: center">
+			<div class="create-head">编辑隐含层</div>
+
+
+			<ul id="nerve-list" >
+				<li  style="list-style:none;margin-bottom: 5px" class="layer">
+					<button type="button" style="display: none;width: 100px;height: 35px;position: relative;bottom:-3px" class="button button-border button-rounded button-primary"></button>
+					<input onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+							type="text" style="display: inline;width: 100px" data-AcademyId="" placeholder="神经元数量" class="form-control">
+					<button  type="button" class="btn btn-danger layer-delete" style="display: none;width: 50px;">删除</button>
+					<button  type="button" class="btn btn-info confirm" style="display: none;width: 50px;">确定</button>
+				</li>
+			</ul>
+			<input id="addLayer"  type="button" class="btn btn-info " value="添加神经层" style=" border-radius:2px;">
+		</div>
+
+	<div class="col-md-4">
+		<button id="saveBrain"  style="border-radius: 5px;width: 50%; margin: 0 auto" type="button" class="btn btn-block btn-primary">保存这个算法</button>
+		<div id="chart" style="width:100%;height:600px;"></div>
+	</div>
+	</div>
+</div>
