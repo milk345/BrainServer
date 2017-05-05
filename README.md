@@ -1,2 +1,0 @@
-# BrainServer
-this is shit
