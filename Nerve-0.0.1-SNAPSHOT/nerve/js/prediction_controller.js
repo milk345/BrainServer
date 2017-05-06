@@ -24,9 +24,9 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             if(i<inputNodeList.length-1) inputArray+=",";
         }
         var sendData={
-            "user_id":sessionStorage.userId,
-            "access_token":sessionStorage.access_token,
-            "brain_id":sessionStorage.prediction_brain_id,
+            "user_id":sessionStorage.getItem("userId"),
+            "access_token":sessionStorage.getItem("access_token"),
+            "brain_id":sessionStorage.getItem("prediction_brain_id"),
             "input_array":inputArray
         };
         $.ajax({
@@ -85,8 +85,8 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
     function showNodes(brainId){
 
         var sendData={
-            "user_id":sessionStorage.userId,
-            "access_token":sessionStorage.access_token,
+            "user_id":sessionStorage.getItem("userId"),
+            "access_token":sessionStorage.getItem("access_token"),
             "brain_id":brainId
         };
         $.ajax({
@@ -171,7 +171,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                 modelList[n].onclick = function(){
                     var modelId=modelList[n].find("a").attr("modelId");
                     showNodes(modelId);
-                    sessionStorage.prediction_brain_id=modelId;
+                    sessionStorage.setItem("prediction_brain_id",modelId);
                 }
             })(i);
         }
@@ -199,12 +199,12 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
     function getBrainByPage(pageIndex){
-        console.log(sessionStorage.userId);
-        console.log(typeof(sessionStorage.userId));
+        console.log(sessionStorage.getItem("userId"));
+        console.log(typeof(sessionStorage.getItem("userId")));
 
         var sendData={
-            "user_id":sessionStorage.userId,
-            "access_token":sessionStorage.access_token,
+            "user_id":sessionStorage.getItem("userId"),
+            "access_token":sessionStorage.getItem("access_token"),
             "page_size":pageSize,
             "page_index":pageIndex
         };

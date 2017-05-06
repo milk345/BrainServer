@@ -13,9 +13,9 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
             swal("未选择文件", "请选择pratice数据文件", "error");
         }
 
-        data.append("user_id",sessionStorage.userId);
-        data.append("access_token",sessionStorage.access_token);
-        data.append("brain_id",sessionStorage.pratice_brain_id);
+        data.append("user_id",sessionStorage.getItem("userId"));
+        data.append("access_token",sessionStorage.getItem("access_token"));
+        data.append("brain_id",sessionStorage.getItem("pratice_brain_id"));
         $.ajax({
             url: '../../brain/uploadPraticeData',
             type: 'POST',
@@ -44,9 +44,9 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
             swal("未选择文件", "请选择label数据文件", "error");
         }
 
-        data.append("user_id",sessionStorage.userId);
-        data.append("access_token",sessionStorage.access_token);
-        data.append("brain_id",sessionStorage.pratice_brain_id);
+        data.append("user_id",sessionStorage.getItem("userId"));
+        data.append("access_token",sessionStorage.getItem("access_token"));
+        data.append("brain_id",sessionStorage.getItem("pratice_brain_id"));
         $.ajax({
             url: '../../brain/uploadLabelData',
             type: 'POST',
@@ -135,7 +135,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
         for(var i=0;i<modelList.length;i++){
             (function(n){
                 modelList[n].onclick = function(){
-                    sessionStorage.pratice_brain_id=modelList[n].find("a").attr("modelId");
+                    sessionStorage.setItem("pratice_brain_id",modelList[n].find("a").attr("modelId"));
                     $('#pratice-data-file').value="";
                     $('#label-data-file').value="";
                 }
@@ -157,8 +157,8 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
 
 
         var sendData={
-            "user_id":sessionStorage.userId,
-            "access_token":sessionStorage.access_token,
+            "user_id":sessionStorage.getItem("userId"),
+            "access_token":sessionStorage.getItem("access_token"),
             "page_size":pageSize,
             "page_index":pageIndex
         };

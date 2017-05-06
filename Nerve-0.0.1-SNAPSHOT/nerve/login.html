@@ -102,8 +102,8 @@
             success:function(json) {
 
                 if(json.result=="success") {
-                    sessionStorage.userId=json.userId;
-                    sessionStorage.access_token=json.access_token;
+                    sessionStorage.setItem("userId",json.userId);
+                    sessionStorage.setItem("access_token",json.access_token);
                     window.location.href="index.html";
                 }
                 else

@@ -607,7 +607,6 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
         $(".layer:last").find("button:first").show();
 
 
-        sessionStorage.noticeType=0;
         var $cloneObject=$(".layer:last").clone();
         $cloneObject.find("input").val("");
         $cloneObject.find("input:first").attr("data-AcademyId","");
@@ -647,7 +646,6 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
         $(".output-node:last").find("button:first").show();
 
 
-        sessionStorage.noticeType=0;
         var $cloneObject=$(".output-node:last").clone();
         $cloneObject.find("input").val("");
         $cloneObject.find("input:first").attr("data-AcademyId","");
@@ -686,7 +684,6 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
         $(".input-node:last").find("button")[0].innerHTML=  $(".input-node:last").find("input").val();
         $(".input-node:last").find("button:first").show();
 
-        sessionStorage.noticeType=0;
         var $cloneObject=$(".input-node:last").clone();
         $cloneObject.find("input").val("");
         //$cloneObject.find("input").removeClass("form-controlborder");
@@ -1038,8 +1035,8 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
         };
 
         var sendData={
-            "user_id":sessionStorage.userId,
-            "access_token":sessionStorage.access_token,
+            "user_id":sessionStorage.getItem("userId"),
+            "access_token":sessionStorage.getItem("access_token"),
             "name":brainName,
             "shape":shape,
             "inputs":inputArrayJson,
