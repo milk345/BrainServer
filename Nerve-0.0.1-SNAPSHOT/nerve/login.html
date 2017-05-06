@@ -1,243 +1,248 @@
 ﻿<!DOCTYPE html>
 <html>
 <head lang="en">
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="renderer" content="webkit" />
-	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-	<title>参数宝登录</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet" />
-	<link href="css/login.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>参数宝登录</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/login.css" rel="stylesheet" />
 
-	
+
 </head>
 <body >
 <div class="modal-content" id="actionDiv">
-	<p id="actionResult">操作提示！</p>
+    <p id="actionResult">操作提示！</p>
 </div>
 <div id="screen">
-	<img src="images/earth.jpg" alt="背景图"/>
-	<p>挖掘数据的无限价值</p>
+    <img src="images/earth.jpg" alt="背景图"/>
+    <p>挖掘数据的无限价值</p>
 </div>
 <div class="bg">
-	<div></div>
+    <div></div>
 </div>
 <!-- content 中间内容区 -->
 <div class="content">
-	<div class="top">
-		<h2>登录参数宝</h2>
-	</div>
-	<div class="box">
-		<div class="item">
-			<!--<i class="icon-yonghuming"></i>-->
-			<input id="account" class="account" type="text" placeholder="请输入账号">
-		</div>
-		<div class="item">
-			<!--<i class="icon-iconfontlock"></i>-->
-			<input class="password" type="text" placeholder="请输入密码">
-		</div>
-		<input class="btn btn-primary login" style="margin: 0 auto;" onclick="login()" value="登录">
-		<!--<textarea id="zhang" name="zhang" rows="10" cols="20" style="background-color: pink;"></textarea>-->
-	</div>
+    <div class="top">
+        <h2>登录参数宝</h2>
+    </div>
+    <div class="box">
+        <div class="item">
+            <!--<i class="icon-yonghuming"></i>-->
+            <input id="account" class="account" type="text" placeholder="请输入账号">
+        </div>
+        <div class="item">
+            <!--<i class="icon-iconfontlock"></i>-->
+            <input class="password" type="text" placeholder="请输入密码">
+        </div>
+        <input class="btn btn-primary login" style="margin: 0 auto;" onclick="login()" value="登录">
+        <!--<textarea id="zhang" name="zhang" rows="10" cols="20" style="background-color: pink;"></textarea>-->
+    </div>
 </div>
 
 <div class="foot">
-	<p>2017 By 梁名凯 All rights reserved</p>
+    <p>2017 By 梁名凯 All rights reserved</p>
 </div>
 <script type="text/javascript">
-		function SetCookie(cookieName,cookieValue,nDays) {
-			/*当前日期*/
-			var today = new Date();
-			/*Cookie过期时间*/
-			var expire = new Date();
-			/*如果未设置nDays参数或者nDays为0，取默认值1*/
-			if(nDays == null || nDays == 0) nDays = 1;
-			/*计算Cookie过期时间*/
-			expire.setTime(today.getTime() + 3600000 * 24 * nDays);
-			/*设置Cookie值*/
-			document.cookie = cookieName + "=" + escape(cookieValue)
-					+ ";expires=" + expire.toGMTString();
-		}
-		function ReadCookie(cookieName) {
-			var theCookie = "" + document.cookie;
-			var ind = theCookie.indexOf(cookieName);
-			if(ind==-1 || cookieName=="")  return "";
-			var ind1 = theCookie.indexOf(';',ind);
-			if(ind1==-1) ind1  =  theCookie.length;
-			/*读取Cookie值*/
-			return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
-		}
-		
-		var accountCorrect=0;
-        var passwordCorrect=0;
-        
-		function login() {
-			// alert("login button test!");
-			if(accountCorrect != 1){
-				swal("请输入用户账号", "", "info");
-				$(".account").focus();
-				return false;
-			}
-			if(passwordCorrect !=1){
-				swal("请输入密码", "", "info");
-				$(".password").focus();
-				return false;
-			}
-			var sendData={
-				"account":$.trim($(".account").val()),
-				"password":$.trim($(".password").val())
-			};
-			
-			$.ajax({
-				url:"../user/login",
-				type:"POST",
-				dataType:"json",
-				timeOut:40,
-				beforeSend:function () {
-				$(".login").prop("disabled",true);
-				$(".login").val("登录中...");
-                },
-				contentType:"application/json",
-				data:JSON.stringify(sendData),
-				success:function(json) {
-					
-					if(json.result=="success") {
-						sessionStorage.userId=json.userId;
-						sessionStorage.access_token=json.access_token;
-						window.location.href="index.html";
-					}
-					else
-					{
-						swal("账号或密码不对", "请重新输入", "error");
-						$(".login").prop("disabled",false);
-						$(".login").val("登录");
-					}
-				},
-				error:function() {
-					swal("系统错误", "请稍后重试", "error");
-					$(".login").prop("disabled",false);
-					$(".login").val("登录");
-				},
-				complete:function () {
+    function SetCookie(cookieName,cookieValue,nDays) {
+        /*当前日期*/
+        var today = new Date();
+        /*Cookie过期时间*/
+        var expire = new Date();
+        /*如果未设置nDays参数或者nDays为0，取默认值1*/
+        if(nDays == null || nDays == 0) nDays = 1;
+        /*计算Cookie过期时间*/
+        expire.setTime(today.getTime() + 3600000 * 24 * nDays);
+        /*设置Cookie值*/
+        document.cookie = cookieName + "=" + escape(cookieValue)
+        + ";expires=" + expire.toGMTString();
+    }
+    function ReadCookie(cookieName) {
+        var theCookie = "" + document.cookie;
+        var ind = theCookie.indexOf(cookieName);
+        if(ind==-1 || cookieName=="")  return "";
+        var ind1 = theCookie.indexOf(';',ind);
+        if(ind1==-1) ind1  =  theCookie.length;
+        /*读取Cookie值*/
+        return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+    }
 
+    var accountCorrect=0;
+    var passwordCorrect=0;
+
+    function login() {
+        // alert("login button test!");
+        if(accountCorrect != 1){
+            swal("请输入用户账号", "", "info");
+            $(".account").focus();
+            return false;
+        }
+        if(passwordCorrect !=1){
+            swal("请输入密码", "", "info");
+            $(".password").focus();
+            return false;
+        }
+        var sendData={
+            "account":$.trim($(".account").val()),
+            "password":$.trim($(".password").val())
+        };
+
+        $.ajax({
+            url:"../user/login",
+            type:"POST",
+            dataType:"json",
+            timeOut:40,
+            beforeSend:function () {
+                $(".login").prop("disabled",true);
+                $(".login").val("登录中...");
+            },
+            contentType:"application/json",
+            data:JSON.stringify(sendData),
+            success:function(json) {
+
+                if(json.result=="success") {
+                    sessionStorage.userId=json.userId;
+                    sessionStorage.access_token=json.access_token;
+                    window.location.href="index.html";
                 }
-			});
-		}
+                else
+                {
+                    swal("账号或密码不对", "请重新输入", "error");
+                    $(".login").prop("disabled",false);
+                    $(".login").val("登录");
+                }
+            },
+            error:function() {
+                swal("系统错误", "请稍后重试", "error");
+                $(".login").prop("disabled",false);
+                $(".login").val("登录");
+            },
+            complete:function () {
+
+            }
+        });
+    }
 
 
-		
 
-        //失去焦点
-        $(".item>.account").on("blur",function () {
-        	var phone=$.trim($(this).val());
-            if($.trim($(this).val())==""){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<link rel="stylesheet" href="./css/sweetalert.css"/>
+<script src="./framework/jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+    //失去焦点
+    $(".item>.account").on("blur",function () {
+        var phone=$.trim($(this).val());
+        if($.trim($(this).val())==""){
 //                $(this).css("border","1px solid #ff5c00");
 //                alert("请输入账号！");
-                accountCorrect=0;
-                 return false;
-            }else{
-                accountCorrect=1;
-            }
-        });
-        
-        $(".item>.password").on("blur",function () {
-            if($.trim($(this).val())==""){
+            accountCorrect=0;
+            return false;
+        }else{
+            accountCorrect=1;
+        }
+    });
+
+    $(".item>.password").on("blur",function () {
+        if($.trim($(this).val())==""){
 //                $(this).css("border","1px solid #ff5c00");
 //                alert("请输入密码！")
-                passwordCorrect=0;
-                return false;
-            }else{
-                passwordCorrect=1;
+            passwordCorrect=0;
+            return false;
+        }else{
+            passwordCorrect=1;
+        }
+    });
+    //获取焦点
+    $(".item>.account,.item>.password").on("focus",function () {
+        console.log("sssss")
+        $(this).css("border","none")
+    });
+
+    var userAgent = navigator.userAgent,
+            rMsie = /(msie\s|trident\/7)([\w.]+)/,
+            rTrident = /(trident)\/([\w.]+)/,
+            rFirefox = /(firefox)\/([\w.]+)/,
+            rOpera = /(opera).+version\/([\w.]+)/,
+            rNewOpera = /(opr)\/(.+)/,
+            rChrome = /(chrome)\/([\w.]+)/,
+            rSafari = /version\/([\w.]+).*(safari)/;
+    var matchBS,matchBS2;
+    var browser;
+    var version;
+    var ua = userAgent.toLowerCase();
+    var uaMatch = function(ua) {
+        matchBS = rMsie.exec(ua);
+        if (matchBS != null) {
+            matchBS2 = rTrident.exec(ua);
+            if (matchBS2 != null){
+                switch (matchBS2[2]){
+                    case "4.0": return { browser : "IE", version : "8" };break;
+                    case "5.0": return { browser : "IE", version : "9" };break;
+                    case "6.0": return { browser : "IE", version : "10" };break;
+                    case "7.0": return { browser : "IE", version : "11" };break;
+                    default:return { browser : "IE", version : "undefined" };
+                }
             }
-        });
-        //获取焦点
-         $(".item>.account,.item>.password").on("focus",function () {
-			 console.log("sssss")
-            $(this).css("border","none")
-        });
+            else
+                return { browser : "IE", version : matchBS[2] || "0" };
+        }
+        matchBS = rFirefox.exec(ua);
+        if ((matchBS != null)&&(!(window.attachEvent))&&(!(window.chrome))&&(!(window.opera))) {
+            return { browser : matchBS[1] || "", version : matchBS[2] || "0" };
+        }
+        matchBS = rOpera.exec(ua);
+        if ((matchBS != null)&&(!(window.attachEvent))) {
+            return { browser : matchBS[1] || "", version : matchBS[2] || "0" };
+        }
+        matchBS = rChrome.exec(ua);
+        if ((matchBS != null)&&(!!(window.chrome))&&(!(window.attachEvent))) {
+            matchBS2 = rNewOpera.exec(ua);
+            if(matchBS2 == null)
+                return { browser : matchBS[1] || "", version : matchBS[2] || "0" };
+            else
+                return { browser : "Opera", version : matchBS2[2] || "0" };
+        }
+        matchBS = rSafari.exec(ua);
+        if ((matchBS != null)&&(!(window.attachEvent))&&(!(window.chrome))&&(!(window.opera))) {
+            return { browser : matchBS[2] || "", version : matchBS[1] || "0" };
+        }
+        if (matchBS != null) {
+            return { browser : "undefined", version : " browser" };
+        }
+    }
+    var browserMatch = uaMatch(userAgent.toLowerCase());
+    if (browserMatch.browser) {
+        browser = browserMatch.browser;
+        version = browserMatch.version;
+    }
+    //document.write(browser+version+"<br>");
 
+    //document.write(browser+"<br>");
+    //document.write(version+"<br>");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	</script>
-<script type="text/javascript">
-	var userAgent = navigator.userAgent,
-			rMsie = /(msie\s|trident\/7)([\w.]+)/,
-			rTrident = /(trident)\/([\w.]+)/,
-			rFirefox = /(firefox)\/([\w.]+)/,
-			rOpera = /(opera).+version\/([\w.]+)/,
-			rNewOpera = /(opr)\/(.+)/,
-			rChrome = /(chrome)\/([\w.]+)/,
-			rSafari = /version\/([\w.]+).*(safari)/;
-	var matchBS,matchBS2;
-	var browser;
-	var version;
-	var ua = userAgent.toLowerCase();
-	var uaMatch = function(ua) {
-		matchBS = rMsie.exec(ua);
-		if (matchBS != null) {
-			matchBS2 = rTrident.exec(ua);
-			if (matchBS2 != null){
-				switch (matchBS2[2]){
-					case "4.0": return { browser : "IE", version : "8" };break;
-					case "5.0": return { browser : "IE", version : "9" };break;
-					case "6.0": return { browser : "IE", version : "10" };break;
-					case "7.0": return { browser : "IE", version : "11" };break;
-					default:return { browser : "IE", version : "undefined" };
-				}
-			}
-			else
-				return { browser : "IE", version : matchBS[2] || "0" };
-		}
-		matchBS = rFirefox.exec(ua);
-		if ((matchBS != null)&&(!(window.attachEvent))&&(!(window.chrome))&&(!(window.opera))) {
-			return { browser : matchBS[1] || "", version : matchBS[2] || "0" };
-		}
-		matchBS = rOpera.exec(ua);
-		if ((matchBS != null)&&(!(window.attachEvent))) {
-			return { browser : matchBS[1] || "", version : matchBS[2] || "0" };
-		}
-		matchBS = rChrome.exec(ua);
-		if ((matchBS != null)&&(!!(window.chrome))&&(!(window.attachEvent))) {
-			matchBS2 = rNewOpera.exec(ua);
-			if(matchBS2 == null)
-				return { browser : matchBS[1] || "", version : matchBS[2] || "0" };
-			else
-				return { browser : "Opera", version : matchBS2[2] || "0" };
-		}
-		matchBS = rSafari.exec(ua);
-		if ((matchBS != null)&&(!(window.attachEvent))&&(!(window.chrome))&&(!(window.opera))) {
-			return { browser : matchBS[2] || "", version : matchBS[1] || "0" };
-		}
-		if (matchBS != null) {
-			return { browser : "undefined", version : " browser" };
-		}
-	}
-	var browserMatch = uaMatch(userAgent.toLowerCase());
-	if (browserMatch.browser) {
-		browser = browserMatch.browser;
-		version = browserMatch.version;
-	}
-	//document.write(browser+version+"<br>");
-
-	//document.write(browser+"<br>");
-	//document.write(version+"<br>");
-	
-	if(browser=='IE'&&version=='10'){
+    if(browser=='IE'&&version=='10'){
         window.location.href="browser.html";
     }
     if(browser=='IE'&&version=='9'){
@@ -253,8 +258,6 @@
         window.location.href="browser.html";
     }
 </script>
-<link rel="stylesheet" href="./css/sweetalert.css"/>
-<script src="./framework/jquery-3.1.0.min.js"></script>
 <script src="./framework/sweetalert.min.js"></script>
 </body>
 </html>
