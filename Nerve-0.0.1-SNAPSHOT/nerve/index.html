@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en"  >
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.5, user-scalable=no">
-        <title>参数宝</title>
-        <link rel="stylesheet" href="./framework/bootstrap-3.0.0/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="./framework/bootstrap-3.0.0/css/bootstrap-theme.min.css"/>
-        <link rel="stylesheet" href="./css/create.css"/>
-        <link rel="stylesheet" href="./css/handdown_goingtodelete.css" />
-        <link rel="stylesheet" href="./css/normalize.css"/>
-        <link rel="stylesheet" href="./css/navbar.css"/>
-        <link rel="stylesheet" href="./css/main.css"/>
-        <link rel="stylesheet" href="./css/buttons.css"/>
-        <link rel="stylesheet" href="./css/asset.css"/>
-        <link rel="stylesheet" href="./css/styles.css"/>
-        <link rel="stylesheet" href="./css/baron.css"/>
-        <link rel="stylesheet" href="./css/sweetalert.css"/>
-        <script src="./framework/angular-1.4.9\angular.js"></script>
-        <script src="./framework/angular-ui-router.js"></script>
-        <script src="./framework/jquery-3.1.0.min.js"></script>
-        <script src="./framework/bootstrap-3.0.0/js/bootstrap.min.js"></script>
-        <script src="./framework/echarts.js"></script>
-        <script src="./framework/sweetalert.min.js"></script>
-        <script src="./framework/dataTool.js"></script>
-        <script src="./framework/ajaxfileupload.js"></script>
-    </head>
+<script type="text/javascript">
+    if(sessionStorage.userId==null||sessionStorage.access_token==null){
+        window.location.href="login.html";
+    }
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.5, user-scalable=no">
+    <title>参数宝</title>
+    <link rel="stylesheet" href="./framework/bootstrap-3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./framework/bootstrap-3.0.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="./css/create.css"/>
+    <link rel="stylesheet" href="./css/handdown_goingtodelete.css" />
+    <link rel="stylesheet" href="./css/normalize.css"/>
+    <link rel="stylesheet" href="./css/navbar.css"/>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <link rel="stylesheet" href="./css/buttons.css"/>
+    <link rel="stylesheet" href="./css/asset.css"/>
+    <link rel="stylesheet" href="./css/styles.css"/>
+    <link rel="stylesheet" href="./css/baron.css"/>
+    <link rel="stylesheet" href="./css/sweetalert.css"/>
+    <script src="./framework/angular-1.4.9\angular.js"></script>
+    <script src="./framework/angular-ui-router.js"></script>
+    <script src="./framework/jquery-3.1.0.min.js"></script>
+    <script src="./framework/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script src="./framework/echarts.js"></script>
+    <script src="./framework/sweetalert.min.js"></script>
+    <script src="./framework/dataTool.js"></script>
+    <script src="./framework/ajaxfileupload.js"></script>
+</head>
 
-    <body id="body" class="background"  ng-app="nerve.app" >
-        <div ui-view  ng-controller="indexCtrl">
-        </div>
-    </body>
-    <!--<div class="footer">-->
-        <!--<div class="f-modile">-->
-            <!--<div class="f-m-t">Copyright  2016 Triton Information. All rights reserved.</div>-->
-            <!--<div class="f-m-b"> POWERED BY KAIGUI 粤ICP备16082261号-1</div>-->
-            <!--<a>广州市凯归信息科技有限公司</a>-->
-        <!--</div>-->
-        <!--&lt;!&ndash;&lt;!&ndash;<a>作&ndash;&gt;-->
-        <!--&lt;!&ndash;死百科</a>&ndash;&gt;&ndash;&gt;-->
-    <!--</div>-->
+<body id="body" class="background"  ng-app="nerve.app" >
+<div ui-view  ng-controller="indexCtrl">
+</div>
+</body>
+<!--<div class="footer">-->
+<!--<div class="f-modile">-->
+<!--<div class="f-m-t">Copyright  2016 Triton Information. All rights reserved.</div>-->
+<!--<div class="f-m-b"> POWERED BY KAIGUI 粤ICP备16082261号-1</div>-->
+<!--<a>广州市凯归信息科技有限公司</a>-->
+<!--</div>-->
+<!--&lt;!&ndash;&lt;!&ndash;<a>作&ndash;&gt;-->
+<!--&lt;!&ndash;死百科</a>&ndash;&gt;&ndash;&gt;-->
+<!--</div>-->
 
-    <script src="./js/app.js"></script>
-    <script src="./js/controller.js"></script>
-    <script src="./js/prediction_controller.js"></script>
-    <script src="./js/create_controller.js"></script>
-    <script src="./js/frame_controller.js"></script>
-    <script src="./js/filter.js"></script>
-    <script src="./js/service.js"></script>
-    <script src="./js/directive.js"></script>
-    <script src="./js/posting.js"></script>
-    <script src="./js/frame_holder.js"></script>
-    <script type="text/javascript">
-        if(sessionStorage.userId==null||sessionStorage.access_token==null){
-            window.location.href="login.html";
-        }
-    </script>
+<script src="./js/app.js"></script>
+<script src="./js/controller.js"></script>
+<script src="./js/prediction_controller.js"></script>
+<script src="./js/create_controller.js"></script>
+<script src="./js/frame_controller.js"></script>
+<script src="./js/filter.js"></script>
+<script src="./js/service.js"></script>
+<script src="./js/directive.js"></script>
+<script src="./js/posting.js"></script>
+<script src="./js/frame_holder.js"></script>
+
 </html>

@@ -977,4 +977,51 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
     render(brain.build());
 
 
+    function saveBrain(){
+        var sendData={
+            "user_id":sessionStorage.userId,
+            "access_token":sessionStorage.access_token,
+            "page_size":pageSize,
+            "page_index":pageIndex
+        };
+        $.ajax({
+            url:"../../brain/getAllBrain",
+            type:"post",
+            dataType:"json",
+            data:JSON.stringify(sendData),
+            contentType:"application/json",
+            beforeSend:function () {
+                $("#model-data-loading").style.display="block";
+                clearModels();
+            },
+            success:function (response) {
+                if(response.result=="success"){
+                    $("#model-data-loading").style.display="none";
+                    var brainArray=response.brain_array;
+                    if(brainArray.length==0){
+                        $("#empty-data").style.display="visible";
+                        return;
+                    }
+                    for(var i=0;i<brainArray.length;i++)
+                    {
+                        addModelItem(brainArray[i].name,brainArray[i].brain_id);
+                    }
+                    setClickEvent();
+                    swal("模型已建立！", "", "success");
+                }
+            },
+            error:function () {
+                swal("系统错误", "请稍后重试", "error");
+            }
+        });
+
+
+
+
+
+    }
+
+
+
+
 } ]);

@@ -77,12 +77,12 @@
 		function login() {
 			// alert("login button test!");
 			if(accountCorrect != 1){
-				alert("请输入用户账号！");
+				swal("请输入用户账号", "", "info");
 				$(".account").focus();
 				return false;
 			}
 			if(passwordCorrect !=1){
-				alert("请输入密码！");
+				swal("请输入密码", "", "info");
 				$(".password").focus();
 				return false;
 			}

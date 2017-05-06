@@ -7,14 +7,89 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         getBrainByPage(0);
     })//document.ready
 
+    function predict(){
+
+        var inputNodeList=$(".input-node-list").find("li");
+        var inputArray="";
+        for(var i=0;i<inputNodeList.length;i++){
+            if(inputNodeList[i].find("input").value==null){
+                swal("参数不全", "请补充所有参数(null)", "error");
+                return;
+            }
+            if(inputNodeList[i].find("input").value==""){
+                swal("参数不全", "请补充所有参数(空字符串)", "error");
+                return;
+            }
+            inputArray+=inputNodeList[i].find("input").value;
+            if(i<inputNodeList.length-1) inputArray+=",";
+        }
+        var sendData={
+            "user_id":sessionStorage.userId,
+            "access_token":sessionStorage.access_token,
+            "brain_id":sessionStorage.prediction_brain_id,
+            "input_array":inputArray
+        };
+        $.ajax({
+            url:"../../brain/predictBrain",
+            type:"post",
+            dataType:"json",
+            data:JSON.stringify(sendData),
+            contentType:"application/json",
+            beforeSend:function () {
+
+            },
+            success:function (response) {
+                if(response=="wrong_format") swal("参数格式错误", "请检查模型", "error");
+                var outputArray=response.split(",");
+                var outputNodeList=$(".output-node-list").find("li");
+
+                for(var i=0;i<outputArray.length;i++)
+                {
+                    outputNodeList[i].find("input").value==outputArray[i]
+                }
+
+                swal("参数模拟成功！", "", "success");
+
+            },
+            error:function () {
+                swal("系统错误", "请稍后重试", "error");
+            }
+        });
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function showNodes(brainId){
         var sendData={
-            "account":sessionStorage.userId,
+            "user_id":sessionStorage.userId,
             "access_token":sessionStorage.access_token,
             "brain_id":brainId
         };
         $.ajax({
-            url:"/nerve/brain/getNodesByBrain",
+            url:"../../brain/getNodesByBrain",
             type:"post",
             dataType:"json",
             data:JSON.stringify(sendData),
@@ -88,7 +163,9 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         for(var i=0;i<modelList.length;i++){
             (function(n){
                 modelList[n].onclick = function(){
-                    showNodes(modelList[n].modelId);
+                    var modelId=modelList[n].find("a").attr("modelId");
+                    showNodes(modelId);
+                    sessionStorage.prediction_brain_id=modelId;
                 }
             })(i);
         }
@@ -119,13 +196,13 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
         var sendData={
-            "account":sessionStorage.userId,
+            "user_id":sessionStorage.userId,
             "access_token":sessionStorage.access_token,
             "page_size":pageSize,
             "page_index":pageIndex
         };
         $.ajax({
-            url:"/nerve/brain/getAllBrain",
+            url:"../../brain/getAllBrain",
             type:"post",
             dataType:"json",
             data:JSON.stringify(sendData),

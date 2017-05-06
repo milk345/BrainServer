@@ -45,40 +45,7 @@
                                     </li>
                               </ul>
 
-                            <!--&lt;!&ndash;单独的item&ndash;&gt;-->
-                        <!--<ul class="model-item">-->
-                            <!--<li class="label-show" style="padding:7px 0px">-->
-                                <!--<a title="哈哈" alt="哈哈哈" href="javascript:void(0);" style="padding-left:5px;text-decoration: none;position:relative;color:#6b6b6b;">-->
-                                    <!--<input class="model-item-name size-m radius" style="width:80%;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;font-size: 14px" readonly="true" value="顶顶顶顶" type="text">-->
-                                    <!--<i class="icon-dots" style="position:absolute;top:-10px;right:-38px;">⋮</i>-->
-                                <!--</a>-->
-                            <!--</li>-->
-                            <!--<li>-->
-                                <!--<div class="model-item-operate">-->
-                                    <!--<ul>-->
-                                        <!--<li class="edit-model-item" onclick="showEdit(this)">修改</li>-->
-                                        <!--<li class="del-model-item">删除</li>-->
-                                    <!--</ul>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                        <!--</ul>-->
-                        <!--&lt;!&ndash;单独的item&ndash;&gt;-->
-                        <!--<ul class="model-item">-->
-                            <!--<li class="label-show" style="padding:7px 0px">-->
-                                <!--<a title="哈哈" alt="哈哈哈" href="javascript:void(0);" style="padding-left:5px;text-decoration: none;position:relative;color:#6b6b6b;">-->
-                                    <!--<input class="model-item-name size-m radius" style="width:80%;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;font-size: 14px" readonly="true" value="顶顶顶顶" type="text">-->
-                                    <!--<i class="icon-dots" style="position:absolute;top:-10px;right:-38px;">⋮</i>-->
-                                <!--</a>-->
-                            <!--</li>-->
-                            <!--<li>-->
-                                <!--<div class="model-item-operate">-->
-                                    <!--<ul>-->
-                                        <!--<li class="edit-model-item" onclick="showEdit(this)">修改</li>-->
-                                        <!--<li class="del-model-item">删除</li>-->
-                                    <!--</ul>-->
-                                <!--</div>-->
-                            <!--</li>-->
-                        <!--</ul>-->
+
                         <div style=" float: left;position: relative;left: 50%;bottom: 20px">
                             <div style=" float: left; position: relative;left:-50%;">
                                 <nav aria-label="Page navigation">
@@ -116,8 +83,9 @@
 
         <div class="col-xs-9" style="background-color:#fff;position: relative;height:100%;overflow:auto;border-left:none">
 
-            <input id="pratice-data-file" type="file"  name="file" />
-            <input id="upload-pratice-data" type="button" value="上传训练数据" />
+            <input id="pratice-data-file" type="file"  name="file" value="上传训练数据"/>
+            <input id="label-data-file" type="file"  name="file" value="上传标签数据" />
+            <input id="upload-data" class="button button-3d button-primary button-rounded" type="button" value="开始上传" />
             <img ng-show="uploading" style="width: 40px;height: 40px;"  src='../images/dataLoading.gif'>
 
             <div style="width: 100%; ">

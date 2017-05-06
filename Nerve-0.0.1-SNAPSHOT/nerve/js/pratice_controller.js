@@ -2,17 +2,22 @@ var praticeController = angular.module('nerve.app');
 
 praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$state){
 
-
-        $("#upload-pratice-data").click(function () {
-            fileUpload();
-        })
+    $scope.uploading=false;
+    $("#upload-data").click(function () {
+        fileUpload();
+    })
     function fileUpload() {
         var data = new FormData($('#pratice-data-file'));
+
+        if(data.valueOf("file")==""){
+            swal("未选择文件", "请选择pratice数据文件", "error");
+        }
+
         data.append("user_id",sessionStorage.userId);
         data.append("access_token",sessionStorage.access_token);
-        data.append("brain_id",sessionStorage.brain_id);
+        data.append("brain_id",sessionStorage.pratice_brain_id);
         $.ajax({
-            url: '/brain/uploadPraticeData',
+            url: '../../brain/uploadPraticeData',
             type: 'POST',
             data: data,
             dataType: 'JSON',
@@ -24,6 +29,38 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
             },
             success:function (response) {
                 $scope.uploading=false;
+                swal("已上传！", "", "success");
+            },
+            error:function () {
+                $scope.uploading=false;
+                swal("系统错误", "请稍后重试", "error");
+            }
+
+        })
+
+        data = new FormData($('#label-data-file'));
+
+        if(data.valueOf("file")==""){
+            swal("未选择文件", "请选择label数据文件", "error");
+        }
+
+        data.append("user_id",sessionStorage.userId);
+        data.append("access_token",sessionStorage.access_token);
+        data.append("brain_id",sessionStorage.pratice_brain_id);
+        $.ajax({
+            url: '../../brain/uploadLabelData',
+            type: 'POST',
+            data: data,
+            dataType: 'JSON',
+            cache: false,
+            processData: false,
+            contentType: false,
+            beforeSend:function () {
+                $scope.uploading=true;
+            },
+            success:function (response) {
+                $scope.uploading=false;
+                swal("已上传！", "", "success");
             },
             error:function () {
                 $scope.uploading=false;
@@ -73,49 +110,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
         getBrainByPage(0);
     })//document.ready
 
-    function showNodes(brainId){
-        var sendData={
-            "account":sessionStorage.userId,
-            "access_token":sessionStorage.access_token,
-            "brain_id":brainId
-        };
-        $.ajax({
-            url:"/nerve/brain/getNodesByBrain",
-            type:"post",
-            dataType:"json",
-            data:JSON.stringify(sendData),
-            contentType:"application/json",
-            beforeSend:function () {
-                $("#node-data-loading").style.display="block";
-                clearNodes();
-            },
-            success:function (response) {
-                if(response.result=="success"){
-                    $("#node-data-loading").style.display="none";
-                    $("#input-node-list").style.display="visible";
-                    $("#output-node-list").style.display="visible";
 
-                    var inputArray=response.input_array;
-                    for(var i=0;i<inputArray.length;i++)
-                    {
-                        addInputNodeItem(inputArray[i].name);
-                    }
-
-                    var outputArray=response.output_array;
-                    for(var i=0;i<outputArray.length;i++)
-                    {
-                        addOutputNodeItem(outputArray[i].name);
-                    }
-
-
-                }
-            },
-            error:function () {
-                $("#node-data-loading").style.display="none";
-                swal("系统错误", "请稍后重试", "error");
-            }
-        });
-    }
 
 
 
@@ -132,21 +127,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
             }
         }
     }
-    function clearNodes(){
-        var inputList=$(".input-node-list").find("li");
-        if(inputList.length>1){
-            //模板不删
-            for(var i=1;i<inputList.length;i++){
-                inputList[i].remove();
-            }
-        }
-        var outputList=$(".output-node-list").find("li");
-        if(outputList.length>1){
-            for(var i=1;i<outputList.length;i++){
-                outputList[i].remove();
-            }
-        }
-    }
+
 
 
     function setClickEvent(){
@@ -154,7 +135,9 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
         for(var i=0;i<modelList.length;i++){
             (function(n){
                 modelList[n].onclick = function(){
-                    showNodes(modelList[n].modelId);
+                    sessionStorage.pratice_brain_id=modelList[n].find("a").attr("modelId");
+                    $('#pratice-data-file').value="";
+                    $('#label-data-file').value="";
                 }
             })(i);
         }
@@ -166,18 +149,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
         $cloneObject.find("a").attr("modelId",modelId);
         $("#model-list:last").after($cloneObject);
     }
-    function addInputNodeItem(inputNodeName){
-        var $cloneObject=$(".input-node-template").clone();
-        $cloneObject.find("span")[0].innerHTML=inputNodeName;
-        $cloneObject.style.display="visible";
-        $(".input-node-template").after($cloneObject);
-    }
-    function addOutputNodeItem(outputNodeName){
-        var $cloneObject=$(".output-node-template").clone();
-        $cloneObject.find("span")[0].innerHTML=outputNodeName;
-        $cloneObject.style.display="visible";
-        $(".output-node-template").after($cloneObject);
-    }
+
 
 
 
@@ -185,13 +157,13 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
 
 
         var sendData={
-            "account":sessionStorage.userId,
+            "user_id":sessionStorage.userId,
             "access_token":sessionStorage.access_token,
             "page_size":pageSize,
             "page_index":pageIndex
         };
         $.ajax({
-            url:"/nerve/brain/getAllBrain",
+            url:"../../brain/getAllBrain",
             type:"post",
             dataType:"json",
             data:JSON.stringify(sendData),
