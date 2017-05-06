@@ -179,20 +179,20 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#model-template").clone();
         $cloneObject.find("a").attr("title",modelName);
-        $cloneObject[0].style.display="visible";
+        $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
         $("#model-list:last").after($cloneObject);
     }
     function addInputNodeItem(inputNodeName){
         var $cloneObject=$(".input-node-template").clone();
         $cloneObject.find("span")[0].innerHTML=inputNodeName;
-        $cloneObject[0].style.display="visible";
+        $cloneObject[0].css("display",'inline');
         $(".input-node-template").after($cloneObject);
     }
     function addOutputNodeItem(outputNodeName){
         var $cloneObject=$(".output-node-template").clone();
         $cloneObject.find("span")[0].innerHTML=outputNodeName;
-        $cloneObject[0].style.display="visible";
+        $cloneObject[0].css("display",'inline');
         $(".output-node-template").after($cloneObject);
     }
 
