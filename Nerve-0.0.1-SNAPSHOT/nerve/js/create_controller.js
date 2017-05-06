@@ -25,35 +25,33 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
         backwardBrain: '</edges>' +
         '</graph>' + '</gexf>',
         nodeLayers:[],
-
-
-            linkLayers:[],
-            addNode:function(node){
-                this.nodes.push(node);
-            },
-            addEdge:function(edge){
-                this.edges.push(edge);
-            },
-            build:function(){
-                var brain=this.forwardBrain;
-                var layers=this.nodeLayers;
-                for( i=0;i<layers.length;i++){
-                    for(j=0;j<layers[i].length;j++){
-                        brain+=layers[i][j].build();
-                    }
+        linkLayers:[],
+        //addNode:function(node){
+        //    this.nodes.push(node);
+        //},
+        //addEdge:function(edge){
+        //    this.edges.push(edge);
+        //},
+        build:function(){
+            var brain=this.forwardBrain;
+            //放弃无序的节点堆和连接堆
+            var layers=this.nodeLayers;
+            for( i=0;i<layers.length;i++){
+                for(j=0;j<layers[i].length;j++){
+                    brain+=layers[i][j].build();
                 }
-                brain+=this.middleBrain;
-                //添加神经连接
-                layers=this.linkLayers;
-                for( i=0;i<layers.length;i++){
-                    for(j=0;j<layers[i].length;j++){
-                        brain+=layers[i][j].build();
-                    }
-                }
-                brain+=this.backwardBrain;
-                return brain;
             }
-
+            brain+=this.middleBrain;
+            //添加神经连接
+            layers=this.linkLayers;
+            for( i=0;i<layers.length;i++){
+                for(j=0;j<layers[i].length;j++){
+                    brain+=layers[i][j].build();
+                }
+            }
+            brain+=this.backwardBrain;
+            return brain;
+        }
         }
 
     function render(xml) {
@@ -567,7 +565,7 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
 
 
     $("#saveBrain").unbind('click').click(function(){
-        test();
+        readyForSavingBrain();
     })
 
     $("#addInPut").unbind('click').click(function(){
@@ -977,36 +975,84 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
     render(brain.build());
 
 
-    function saveBrain(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function readyForSavingBrain(){
+        var name=prompt("请输入您这个神经网络模型的名字","")
+        if (name!=null && name!="")
+        {
+            saveBrain(name);
+        }
+    }
+
+
+
+    function saveBrain(brainName){
+        //输入层
+        var inputArray=brain.nodeLayers[0];
+        var ul = document.getElementById("input-list");
+        var inputList=ul.getElementsByTagName("li");
+        var inputArrayJson=[];
+        for(var i=0;i<inputArray.length;i++){
+            var node={"name":inputList[i].getElementsByTagName("input")[0].value}
+            inputArrayJson.add(node);
+        }
+
+
+        //输出层
+        var outputArray=brain.nodeLayers[brain.nodeLayers.length-1];
+        var ul = document.getElementById("output-list");
+        var outputList=ul.getElementsByTagName("li");
+        var outputArrayJson=[];
+        for(var i=0;i<outputArray.length;i++){
+            var node={"name":outputList[i].getElementsByTagName("input")[0].value}
+            outputArrayJson.add(node);
+        };
+
+        //隐含层
+        var shape="";
+        var layers=brain.nodeLayers;
+        for(var i=1;i<layers.length-1;i++){
+            shape+=layers[i].length;
+            if(i<layers.length-2){
+                shape+=",";
+            }
+        };
+
         var sendData={
             "user_id":sessionStorage.userId,
             "access_token":sessionStorage.access_token,
-            "page_size":pageSize,
-            "page_index":pageIndex
+            "name":brainName,
+            "shape":shape,
+            "inputs":inputArrayJson,
+            "outputs":outputArrayJson
         };
         $.ajax({
-            url:"../../brain/getAllBrain",
+            url:"../../brain/createBrain",
             type:"post",
             dataType:"json",
             data:JSON.stringify(sendData),
             contentType:"application/json",
-            beforeSend:function () {
-                $("#model-data-loading").style.display="block";
-                clearModels();
-            },
             success:function (response) {
                 if(response.result=="success"){
-                    $("#model-data-loading").style.display="none";
-                    var brainArray=response.brain_array;
-                    if(brainArray.length==0){
-                        $("#empty-data").style.display="visible";
-                        return;
-                    }
-                    for(var i=0;i<brainArray.length;i++)
-                    {
-                        addModelItem(brainArray[i].name,brainArray[i].brain_id);
-                    }
-                    setClickEvent();
                     swal("模型已建立！", "", "success");
                 }
             },
