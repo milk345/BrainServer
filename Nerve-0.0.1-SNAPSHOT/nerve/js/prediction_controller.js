@@ -30,7 +30,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             "input_array":inputArray
         };
         $.ajax({
-            url:"../../brain/predictBrain",
+            url:"../brain/predictBrain",
             type:"post",
             dataType:"json",
             data:JSON.stringify(sendData),
@@ -89,7 +89,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             "brain_id":brainId
         };
         $.ajax({
-            url:"../../brain/getNodesByBrain",
+            url:"../brain/getNodesByBrain",
             type:"post",
             dataType:"json",
             data:JSON.stringify(sendData),
@@ -207,7 +207,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             "page_index":pageIndex
         };
         $.ajax({
-            url:"../../brain/getAllBrain",
+            url:"../brain/getAllBrain",
             type:"post",
             dataType:"json",
             data:JSON.stringify(sendData),

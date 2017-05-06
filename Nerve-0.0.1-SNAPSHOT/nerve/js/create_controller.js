@@ -1046,7 +1046,7 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
             "outputs":outputArrayJson
         };
         $.ajax({
-            url:"../../brain/createBrain",
+            url:"../brain/createBrain",
             type:"post",
             dataType:"json",
             data:JSON.stringify(sendData),
