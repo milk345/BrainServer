@@ -6,12 +6,9 @@
 	<meta name="renderer" content="webkit" />
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 	<title>参数宝登录</title>
-	<link rel="icon" href="images/tuituiIcon.ico" type="image/x-icon" />
-	<script src="./framework/jquery-3.1.0.min.js"></script>
-	<script src="./framework/sweetalert.min.js"></script>
 	<link href="css/bootstrap.min.css" rel="stylesheet" />
 	<link href="css/login.css" rel="stylesheet" />
-	<link rel="stylesheet" href="./css/sweetalert.css"/>
+
 	
 </head>
 <body >
@@ -174,52 +171,7 @@
 
 
 
-        //获取验证码
-        $("#gain").unbind("click").on("click",function () {
-            var phone=$.trim($(".item input.account").val());
-            if(accountCorrect==1){
-                var sendData={
-                    "phoneNum":phone
-                };
-                $.ajax({
-                    url:"/tuitui/user/randomForRegister",
-                    type:"post",
-                    dataType:"json",
-                    data:JSON.stringify(sendData),
-                    contentType:"application/json",
-                    success:function(json){
-                        if(json.result=="success")
-                        {
-                            alert("验证码已发送到你手机，请注意查收",0);
-                            time();
-                            var wait=60;
-                            function time() {
-                                if (wait == 0) {
-                                    $("#gain").removeAttr("disabled");
-                                    $("#gain").val("获取验证码");
-                                    wait = 60;
-                                } else {
-                                    $("#gain").attr("disabled","disabled");
-                                    $("#gain").val("重新发送(" + wait + ")");
-                                    wait--;
-                                    setTimeout(function() {
-                                                time();
-                                            },1000)
-                                }
-                            }
 
-                        }
-
-                    },
-                    error:function () {
-                        alert("获取验证码失败",1);
-                    }
-                })
-            }else{
-            	alert("请输入正确的手机号码")
-            }
-
-        });
 
 	</script>
 <script type="text/javascript">
@@ -301,6 +253,8 @@
         window.location.href="browser.html";
     }
 </script>
-
+<link rel="stylesheet" href="./css/sweetalert.css"/>
+<script src="./framework/jquery-3.1.0.min.js"></script>
+<script src="./framework/sweetalert.min.js"></script>
 </body>
 </html>

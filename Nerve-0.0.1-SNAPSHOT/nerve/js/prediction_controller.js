@@ -83,6 +83,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
     function showNodes(brainId){
+
         var sendData={
             "user_id":sessionStorage.userId,
             "access_token":sessionStorage.access_token,
@@ -198,7 +199,8 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
     function getBrainByPage(pageIndex){
-
+        console.log(sessionStorage.userId);
+        console.log(typeof(sessionStorage.userId));
 
         var sendData={
             "user_id":sessionStorage.userId,
