@@ -1013,7 +1013,7 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
         var inputArrayJson=[];
         for(var i=0;i<inputArray.length;i++){
             var node={"name":inputList[i].getElementsByTagName("input")[0].value}
-            inputArrayJson.add(node);
+            inputArrayJson.push(node);
         }
 
 
@@ -1024,7 +1024,7 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
         var outputArrayJson=[];
         for(var i=0;i<outputArray.length;i++){
             var node={"name":outputList[i].getElementsByTagName("input")[0].value}
-            outputArrayJson.add(node);
+            outputArrayJson.push(node);
         };
 
         //隐含层

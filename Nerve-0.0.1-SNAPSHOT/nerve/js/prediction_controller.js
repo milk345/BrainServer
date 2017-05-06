@@ -95,14 +95,15 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             data:JSON.stringify(sendData),
             contentType:"application/json",
             beforeSend:function () {
-                $("#node-data-loading").style.display="block";
+                //$("#node-data-loading").style.display="block";
+                $scope.loadingNode=true;
                 clearNodes();
             },
             success:function (response) {
                 if(response.result=="success"){
-                    $("#node-data-loading").style.display="none";
-                    $("#input-node-list").style.display="visible";
-                    $("#output-node-list").style.display="visible";
+                    $scope.loadingNode=false;
+                    //$("#input-node-list").style.display="visible";
+                    //$("#output-node-list").style.display="visible";
 
                     var inputArray=response.input_array;
                     for(var i=0;i<inputArray.length;i++)
@@ -116,11 +117,15 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                         addOutputNodeItem(outputArray[i].name);
                     }
 
+                    if(outputArray.length==0||inputArray.length==0){
+                        $scope.nodeEmptyData=true;
+                    }
+
 
                 }
             },
             error:function () {
-                $("#node-data-loading").style.display="none";
+                $scope.loadingNode=false;
                 swal("系统错误", "请稍后重试", "error");
             }
         });
@@ -208,15 +213,15 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             data:JSON.stringify(sendData),
             contentType:"application/json",
             beforeSend:function () {
-                $("#model-data-loading").style.display="block";
+                $scope.loadingModel=true;
                 clearModels();
             },
             success:function (response) {
                 if(response.result=="success"){
-                    $("#model-data-loading").style.display="none";
+                    $scope.loadingModel=false;
                     var brainArray=response.brain_array;
                     if(brainArray.length==0){
-                        $("#empty-data").style.display="visible";
+                        $scope.modelEmptyData=true;
                         return;
                     }
                     for(var i=0;i<brainArray.length;i++)
@@ -228,7 +233,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                 }
             },
             error:function () {
-                $("#model-data-loading").style.display="none";
+                $scope.loadingModel=false;
                 swal("系统错误", "请稍后重试", "error");
             }
         });
