@@ -25,8 +25,8 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         }
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
-            "access_token":sessionStorage.getItem("access_token"),
-            "brain_id":sessionStorage.getItem("prediction_brain_id"),
+            "access_token":sessionStorage.getItem("accessToken"),
+            "brain_id":sessionStorage.getItem("predictionBrainId"),
             "input_array":inputArray
         };
         $.ajax({
@@ -86,7 +86,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
-            "access_token":sessionStorage.getItem("access_token"),
+            "access_token":sessionStorage.getItem("accessToken"),
             "brain_id":brainId
         };
         $.ajax({
@@ -165,23 +165,23 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
     function setClickEvent(){
-        var modelList=$(".model-list").find("ul");
+        var modelList=$("#prediction-model-list").find("ul");
         for(var i=0;i<modelList.length;i++){
             (function(n){
                 modelList[n].onclick = function(){
                     var modelId=modelList[n].find("a").attr("modelId");
                     showNodes(modelId);
-                    sessionStorage.setItem("prediction_brain_id",modelId);
+                    sessionStorage.setItem("predictionBrainId",modelId);
                 }
             })(i);
         }
     }
     function addModelItem(modelName,modelId){
-        var $cloneObject=$("#model-template").clone();
-        $cloneObject.find("a").attr("title",modelName);
+        var $cloneObject=$("#prediction-model-template").clone();
+        $cloneObject.find("a")[0].innnerHtml=modelName;
         $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
-        $("#model-list:last").prev().after($cloneObject);
+        $("#prediction-model-list:last").prev().after($cloneObject);
     }
     function addInputNodeItem(inputNodeName){
         var $cloneObject=$(".input-node-template").clone();
@@ -201,7 +201,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
     function getBrainByPage(pageIndex){
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
-            "access_token":sessionStorage.getItem("access_token"),
+            "access_token":sessionStorage.getItem("accessToken"),
             "page_size":pageSize,
             "page_index":pageIndex
         };

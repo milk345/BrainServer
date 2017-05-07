@@ -1036,7 +1036,7 @@ createController.controller("createCtrl",["$scope","$state",function($scope,$sta
 
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
-            "access_token":sessionStorage.getItem("access_token"),
+            "access_token":sessionStorage.getItem("accessToken"),
             "name":brainName,
             "shape":shape,
             "inputs":inputArrayJson,

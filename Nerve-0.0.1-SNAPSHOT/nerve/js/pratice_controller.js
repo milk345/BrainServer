@@ -1,6 +1,8 @@
 var praticeController = angular.module('nerve.app');
 
 praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$state){
+    var pageSize=20;
+
 
     $scope.uploading=false;
     $("#upload-data").click(function () {
@@ -14,8 +16,8 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
         }
 
         data.append("user_id",sessionStorage.getItem("userId"));
-        data.append("access_token",sessionStorage.getItem("access_token"));
-        data.append("brain_id",sessionStorage.getItem("pratice_brain_id"));
+        data.append("access_token",sessionStorage.getItem("accessToken"));
+        data.append("brain_id",sessionStorage.getItem("praticeBrainId"));
         $.ajax({
             url: '../../brain/uploadPraticeData',
             type: 'POST',
@@ -46,7 +48,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
 
         data.append("user_id",sessionStorage.getItem("userId"));
         data.append("access_token",sessionStorage.getItem("access_token"));
-        data.append("brain_id",sessionStorage.getItem("pratice_brain_id"));
+        data.append("brain_id",sessionStorage.getItem("praticeBrainId"));
         $.ajax({
             url: '../../brain/uploadLabelData',
             type: 'POST',
@@ -104,7 +106,6 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
 
 
 
-    var pageSize=20;
 
     $(document).ready(function(){
         getBrainByPage(0);
@@ -131,11 +132,11 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
 
 
     function setClickEvent(){
-        var modelList=$(".model-list").find("ul");
+        var modelList=$("#pratice-model-list").find("ul");
         for(var i=0;i<modelList.length;i++){
             (function(n){
                 modelList[n].onclick = function(){
-                    sessionStorage.setItem("pratice_brain_id",modelList[n].find("a").attr("modelId"));
+                    sessionStorage.setItem("praticeBrainId",modelList[n].find("a").attr("modelId"));
                     $('#pratice-data-file').value="";
                     $('#label-data-file').value="";
                 }
@@ -143,11 +144,11 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
         }
     }
     function addModelItem(modelName,modelId){
-        var $cloneObject=$("#model-template").clone();
-        $cloneObject.find("a").attr("title",modelName);
+        var $cloneObject=$("#pratice-model-template").clone();
+        $cloneObject.find("a")[0].innnerHtml=modelName;
         $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
-        $("#model-list:last").prev().after($cloneObject);
+        $("#pratice-model-list:last").prev().after($cloneObject);
     }
 
 
@@ -158,7 +159,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
 
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
-            "access_token":sessionStorage.getItem("access_token"),
+            "access_token":sessionStorage.getItem("accessToken"),
             "page_size":pageSize,
             "page_index":pageIndex
         };

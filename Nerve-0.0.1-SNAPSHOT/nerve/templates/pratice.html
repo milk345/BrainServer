@@ -6,13 +6,13 @@
 
         <div class="col-xs-3" style="background-color: #fff;height: 100%;overflow-y: auto">
             <!-- 加载数据-->
-            <div id="model-data-loading" ng-show="loadingModel" style='top: 50%;position: absolute;left: 50%;margin-left: -60px;margin-top:-60px;"'>
+            <div  ng-show="loadingModel" style='top: 50%;position: absolute;left: 50%;margin-left: -60px;margin-top:-60px;"'>
                 <div style="text-align: center"><img style="width: 40px;height: 40px;"  src='/images/dataLoading.gif'>
                 </div>
                 <div style="text-align: center"><span class="">正在加载数据,请稍后…</span><br></div>
             </div>
             <!--没数据-->
-            <img id="model-empty-data"ng-show="modelEmptyData" style=";position:absolute;width:50%;left:50%;top:50%; -webkit-transform: translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);"  src='images/dataFree.png'>
+            <img ng-show="modelEmptyData" style=";position:absolute;width:50%;left:50%;top:50%; -webkit-transform: translate(-50%,-50%);-o-transform:translate(-50%,-50%);transform:translate(-50%,-50%);"  src='images/dataFree.png'>
 
 
             <div  style="height:100%;border-right: 1px solid #E7E7EB;padding-top:40px;background-color: #fff;">
@@ -25,10 +25,10 @@
                         <input  type="text" class="form-control" style="border-radius:2px;height:42px;border:1px solid  #E7E7EB" placeholder="搜索" value="" >
                         <div ><img src="images/return.png"  type="button" style="position: absolute;left:86%;top: 18px;z-index: 10" onclick="searchLabel(); $(this).parent().prev().val('')" ></div>
                     </div>
-                    <div id="model-list">
+                    <div id="pratice-model-list">
 
                             <!--单独的item,作为模板-->
-                              <ul id="model-template" class="model-item" style="display: none">
+                              <ul id="pratice-model-template" class="model-item" style="display: none">
                                     <li  style="padding:7px 0px">
                                         <a title="哈哈" alt="哈哈哈" style="padding-left:5px;text-decoration: none;position:relative;color:#6b6b6b;">
                                             <input class="model-item-name size-m radius" style="width:80%;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;font-size: 14px" readonly="true" value="顶顶顶顶" type="text">
