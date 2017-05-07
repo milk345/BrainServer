@@ -147,7 +147,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
                     //清空全部的class
                     for(var j=0; j<modelList.length;j++){
-                        removeClass(modelList[n].getElementsByTagName("li")[0],"model-item-selected");
+                        removeClass(modelList[j].getElementsByTagName("li")[0],"model-item-selected");
                     }
                     //设置选中项
                     modelList[n].getElementsByTagName("li")[0].className="model-item-selected";
