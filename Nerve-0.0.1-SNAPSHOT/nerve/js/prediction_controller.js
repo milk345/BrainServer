@@ -167,13 +167,18 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
     function setClickEvent(){
         var modelList=document.getElementById("prediction-model-list").getElementsByTagName("ul");
         for(var i=1;i<modelList.length;i++){
-            console.log("我在点击",modelList[i]);
             (function(n){
                     var liForClick= modelList[n].getElementsByTagName("li")[0]
                     liForClick.onclick = function(){
-                    var modelId=liForClick.getElementsByTagName("a")[0].attr("modelId");
+                    var modelId=liForClick.getElementsByTagName("a")[0].getAttribute("modelId");
                     showNodes(modelId);
                     sessionStorage.setItem("predictionBrainId",modelId);
+
+
+                    //清空全部的class
+                    modelList.className="model-item";
+                    //设置选中项
+                    modelList[n].className="model-item-selected";
                 }
             })(i);
         }

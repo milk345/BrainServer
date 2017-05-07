@@ -1,6 +1,6 @@
-var praticeController = angular.module('nerve.app');
+var practiceController = angular.module('nerve.app');
 
-praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$state){
+practiceController.controller("practiceCtrl",["$scope","$state",function($scope,$state){
     var pageSize=20;
 
 
@@ -141,6 +141,14 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
                     sessionStorage.setItem("praticeBrainId",modelId);
                     $('#pratice-data-file')[0].value="";
                     $('#label-data-file')[0].value="";
+
+                    //清空全部的class
+                    modelList.className="model-item";
+                    //设置选中项
+                    modelList[n].className="model-item-selected";
+
+
+
                 }
             })(i);
         }

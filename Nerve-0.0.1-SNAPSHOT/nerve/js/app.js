@@ -102,7 +102,7 @@ appRouter.config(function($stateProvider,$urlRouterProvider){
                 },
                 "main@index":{
                     templateUrl:"./templates/pratice.html",
-                    controller:"praticeCtrl"
+                    controller:"practiceCtrl"
                 }
             },
             onExit:function(){
