@@ -198,7 +198,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
     }
 
     function addClass(obj, cls) {
-        if (!this.hasClass(obj, cls)) obj.className += " " + cls;
+        if (!hasClass(obj, cls)) obj.className += " " + cls;
     }
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#prediction-model-template").clone();

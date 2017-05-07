@@ -4,9 +4,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
     var pageSize=20;
 
 
-    $scope.uploading=false;
-    $scope.loadingModel=false;
-    $("#upload-data").click(function () {
+    $("#upload-data").unbind('click').click(function () {
         fileUpload();
     })
     function fileUpload() {
@@ -142,7 +140,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             (function(n){
                 var liForClick= modelList[n].getElementsByTagName("li")[0]
                 liForClick.onclick = function(){
-                    var modelId=liForClick.getElementsByTagName("a")[0].attr("modelId");
+                    var modelId=liForClick.getElementsByTagName("a")[0].getAttribute("modelId");
                     sessionStorage.setItem("praticeBrainId",modelId);
                     $('#pratice-data-file')[0].value="";
                     $('#label-data-file')[0].value="";
