@@ -89,19 +89,19 @@ appRouter.config(function($stateProvider,$urlRouterProvider){
                 organizeWindow();
             }
         })
-        .state("index.pratice",
+        .state("index.practice",
         {
-            url:"/pratice",
+            url:"/practice",
             views:{
                 "":{
-                    templateUrl:"./templates/pratice.html",
+                    templateUrl:"./templates/practice.html",
                     controller:"frameCtrl"
                 },
                 "nav@index":{
                     templateUrl:"./templates/navbar.html"
                 },
                 "main@index":{
-                    templateUrl:"./templates/pratice.html",
+                    templateUrl:"./templates/practice.html",
                     controller:"practiceCtrl"
                 }
             },

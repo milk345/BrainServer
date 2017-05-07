@@ -5,6 +5,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
 
     $scope.uploading=false;
+    $scope.loadingModel=false;
     $("#upload-data").click(function () {
         fileUpload();
     })
@@ -19,7 +20,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
         data.append("access_token",sessionStorage.getItem("accessToken"));
         data.append("brain_id",sessionStorage.getItem("praticeBrainId"));
         $.ajax({
-            url: '../../brain/uploadPraticeData',
+            url: '../brain/uploadPraticeData',
             type: 'POST',
             data: data,
             dataType: 'JSON',
@@ -40,6 +41,10 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
         })
 
+
+
+
+        //标签数据
         data = new FormData($('#label-data-file'));
 
         if(data.valueOf("file")==""){
@@ -50,7 +55,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
         data.append("access_token",sessionStorage.getItem("accessToken"));
         data.append("brain_id",sessionStorage.getItem("praticeBrainId"));
         $.ajax({
-            url: '../../brain/uploadLabelData',
+            url: '../brain/uploadLabelData',
             type: 'POST',
             data: data,
             dataType: 'JSON',
@@ -176,7 +181,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             "page_index":pageIndex
         };
         $.ajax({
-            url:"../../brain/getAllBrain",
+            url:"../brain/getAllBrain",
             type:"post",
             dataType:"json",
             data:JSON.stringify(sendData),
