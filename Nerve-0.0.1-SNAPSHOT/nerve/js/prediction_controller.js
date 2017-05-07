@@ -177,12 +177,18 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
                         //清空全部的class
                         for(var j=0; j<modelList.length;j++){
-                            modelList[n].getElementsByTagName("li")[0].className="model-item";
+                           removeClass(modelList[n].getElementsByTagName("li")[0],"model-item");
                         }
                         //设置选中项
                         modelList[n].getElementsByTagName("li")[0].className="model-item-selected";
                 }
             })(i);
+        }
+    }
+    function removeClass(obj, cls) {
+        if (hasClass(obj, cls)) {
+            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+            obj.className = obj.className.replace(reg, ' ');
         }
     }
     function addModelItem(modelName,modelId){

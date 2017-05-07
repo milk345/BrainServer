@@ -19,7 +19,7 @@
     background:url(../images/vertical.png) 0px center no-repeat !important;
     margin-right: 20px;
 }
-.model-item-selected >li>a
+.model-item-selected >a
 {
     color: #37A8EC !important;
 }
