@@ -169,7 +169,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         for(var i=0;i<modelList.length;i++){
             console.log("我在点击",modelList[i]);
             (function(n){
-                modelList[n].find("li")[0].onclick = function(){
+                modelList[n].children("li")[0].onclick = function(){
                     console.log("我在点击");
                     var modelId=modelList[n].find("a").attr("modelId");
                     showNodes(modelId);
@@ -184,7 +184,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
         console.log("我是老二",$("#prediction-model-list:last").prev());
-        $("#prediction-model-list:last").prev().after($cloneObject);
+        $("#prediction-model-list").last().prev().after($cloneObject);
     }
     function addInputNodeItem(inputNodeName){
         var $cloneObject=$(".input-node-template").clone();
