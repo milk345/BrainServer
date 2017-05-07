@@ -166,12 +166,12 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
     function setClickEvent(){
         var modelList=document.getElementById("prediction-model-list").getElementsByTagName("ul");
-        for(var i=0;i<modelList.length;i++){
+        for(var i=1;i<modelList.length;i++){
             console.log("我在点击",modelList[i]);
             (function(n){
                     var liForClick= modelList[n].getElementsByTagName("li")[0]
                     liForClick.onclick = function(){
-                    var modelId=modelList[n].find("a").attr("modelId");
+                    var modelId=liForClick.getElementsByTagName("a")[0].attr("modelId");
                     showNodes(modelId);
                     sessionStorage.setItem("predictionBrainId",modelId);
                 }
@@ -183,7 +183,6 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         $cloneObject.find("a input").attr("value",modelName);
         $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
-        console.log("我是老二",$("#prediction-model-list:last").prev());
         $("#prediction-model-list").children().eq(-2).after($cloneObject);
     }
     function addInputNodeItem(inputNodeName){

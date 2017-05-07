@@ -132,11 +132,13 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
 
 
     function setClickEvent(){
-        var modelList=$("#pratice-model-list").find("ul");
-        for(var i=0;i<modelList.length;i++){
+        var modelList=document.getElementById("pratice-model-list").getElementsByTagName("ul");
+        for(var i=1;i<modelList.length;i++){
             (function(n){
-                modelList[n].onclick = function(){
-                    sessionStorage.setItem("praticeBrainId",modelList[n].find("a").attr("modelId"));
+                var liForClick= modelList[n].getElementsByTagName("li")[0]
+                liForClick.onclick = function(){
+                    var modelId=liForClick.getElementsByTagName("a")[0].attr("modelId");
+                    sessionStorage.setItem("praticeBrainId",modelId);
                     $('#pratice-data-file')[0].value="";
                     $('#label-data-file')[0].value="";
                 }
@@ -148,7 +150,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
         $cloneObject.find("a input").attr("value",modelName);
         $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
-        $("#pratice-model-list:last").prev().after($cloneObject);
+        $("#pratice-model-list").children().eq(-2).after($cloneObject);
     }
 
 
