@@ -17,12 +17,12 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
 
 
-        data.append("file",$('#pratice-data-file').files[0]);
+        data.append("file",document.querySelector("#practice-data-file").files[0]);
 
 
         data.append("user_id",sessionStorage.getItem("userId"));
         data.append("access_token",sessionStorage.getItem("accessToken"));
-        data.append("brain_id",sessionStorage.getItem("praticeBrainId"));
+        data.append("brain_id",sessionStorage.getItem("practiceBrainId"));
         $.ajax({
             url: '../brain/uploadPraticeData',
             type: 'POST',
@@ -58,7 +58,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
         data.append("user_id",sessionStorage.getItem("userId"));
         data.append("access_token",sessionStorage.getItem("accessToken"));
-        data.append("brain_id",sessionStorage.getItem("praticeBrainId"));
+        data.append("brain_id",sessionStorage.getItem("practiceBrainId"));
         $.ajax({
             url: '../brain/uploadLabelData',
             type: 'POST',
@@ -119,6 +119,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
     $(document).ready(function(){
         getBrainByPage(0);
+        console.log("我在执行getBrain")
     })//document.ready
 
 
@@ -148,7 +149,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                 var liForClick= modelList[n].getElementsByTagName("li")[0]
                 liForClick.onclick = function(){
                     var modelId=liForClick.getElementsByTagName("a")[0].getAttribute("modelId");
-                    sessionStorage.setItem("praticeBrainId",modelId);
+                    sessionStorage.setItem("practiceBrainId",modelId);
                     $('#pratice-data-file')[0].value="";
                     $('#label-data-file')[0].value="";
 
@@ -194,7 +195,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
     function getBrainByPage(pageIndex){
 
-
+        console.log("我已经在执行getBrain")
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
             "access_token":sessionStorage.getItem("accessToken"),
