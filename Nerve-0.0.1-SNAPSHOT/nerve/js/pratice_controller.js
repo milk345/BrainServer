@@ -145,9 +145,9 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
     }
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#pratice-model-template").clone();
-        $cloneObject.find("a")[0].attr("value",modelName);
+        $cloneObject.find("a").attr("value",modelName);
         $cloneObject.css("display",'inline');
-        $cloneObject.find("a")[0].attr("modelId",modelId);
+        $cloneObject.find("a").attr("modelId",modelId);
         $("#pratice-model-list:last").prev().after($cloneObject);
     }
 
