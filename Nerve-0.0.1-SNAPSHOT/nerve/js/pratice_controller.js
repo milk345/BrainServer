@@ -47,7 +47,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
         }
 
         data.append("user_id",sessionStorage.getItem("userId"));
-        data.append("access_token",sessionStorage.getItem("access_token"));
+        data.append("access_token",sessionStorage.getItem("accessToken"));
         data.append("brain_id",sessionStorage.getItem("praticeBrainId"));
         $.ajax({
             url: '../../brain/uploadLabelData',
@@ -136,7 +136,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
         for(var i=0;i<modelList.length;i++){
             (function(n){
                 modelList[n].onclick = function(){
-                    sessionStorage.setItem("praticeBrainId",modelList[n].find("a")[0].attr("modelId"));
+                    sessionStorage.setItem("praticeBrainId",modelList[n].find("a").attr("modelId"));
                     $('#pratice-data-file')[0].value="";
                     $('#label-data-file')[0].value="";
                 }
@@ -145,7 +145,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
     }
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#pratice-model-template").clone();
-        $cloneObject.find("a").attr("value",modelName);
+        $cloneObject.find("a input").attr("value",modelName);
         $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
         $("#pratice-model-list:last").prev().after($cloneObject);

@@ -167,9 +167,10 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
     function setClickEvent(){
         var modelList=$("#prediction-model-list").find("ul");
         for(var i=0;i<modelList.length;i++){
+            console.log("我在点击",modelList[i]);
             (function(n){
                 modelList[n].onclick = function(){
-                    var modelId=modelList[n].find("a")[0].attr("modelId");
+                    var modelId=modelList[n].find("a").attr("modelId");
                     showNodes(modelId);
                     sessionStorage.setItem("predictionBrainId",modelId);
                 }
@@ -178,7 +179,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
     }
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#prediction-model-template").clone();
-        $cloneObject.find("a").attr("value",modelName);
+        $cloneObject.find("a input").attr("value",modelName);
         $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
         $("#prediction-model-list:last").prev().after($cloneObject);
