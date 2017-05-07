@@ -3,16 +3,22 @@ var practiceController = angular.module('nerve.app');
 practiceController.controller("practiceCtrl",["$scope","$state",function($scope,$state){
     var pageSize=20;
 
-
+    $scope.loadingModel=true;
     $("#upload-data").unbind('click').click(function () {
         fileUpload();
     })
     function fileUpload() {
-        var data = new FormData($('#pratice-data-file'));
+        var data = new FormData();
 
         if(data.valueOf("file")==""){
             swal("未选择文件", "请选择pratice数据文件", "error");
         }
+
+
+
+
+        data.append("file",$('#pratice-data-file').files[0]);
+
 
         data.append("user_id",sessionStorage.getItem("userId"));
         data.append("access_token",sessionStorage.getItem("accessToken"));
@@ -24,7 +30,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             dataType: 'JSON',
             cache: false,
             processData: false,
-            contentType: false,
+            contentType: "multipart/form-data",
             beforeSend:function () {
                 $scope.uploading=true;
             },
@@ -48,6 +54,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
         if(data.valueOf("file")==""){
             swal("未选择文件", "请选择label数据文件", "error");
         }
+        console.log(data.valueOf("file"));
 
         data.append("user_id",sessionStorage.getItem("userId"));
         data.append("access_token",sessionStorage.getItem("accessToken"));
@@ -172,7 +179,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
     }
 
     function addClass(obj, cls) {
-        if (!this.hasClass(obj, cls)) obj.className += " " + cls;
+        if (!hasClass(obj, cls)) obj.className += " " + cls;
     }
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#pratice-model-template").clone();
@@ -214,6 +221,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                     }
                     for(var i=0;i<brainArray.length;i++)
                     {
+                        console.log("我在加");
                         addModelItem(brainArray[i].name,brainArray[i].brain_id);
                     }
                     setClickEvent();

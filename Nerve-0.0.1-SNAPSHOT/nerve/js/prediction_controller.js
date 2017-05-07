@@ -6,7 +6,9 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
     $(document).ready(function(){
         getBrainByPage(0);
     })//document.ready
-
+    $("#predict-data").unbind('click').click(function () {
+        predict();
+    })
     function predict(){
 
         var inputNodeList=$(".input-node-list").find("li");
