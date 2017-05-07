@@ -165,11 +165,12 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
     function setClickEvent(){
-        var modelList=$("#prediction-model-list").find("ul");
-        for(var i=0;i<modelList.length;i++){
+        var modelList=$("#prediction-model-list").children();
+        for(var i=1;i<modelList.length-1;i++){
             console.log("我在点击",modelList[i]);
             (function(n){
                 modelList[n].onclick = function(){
+                    console.log("我在点击");
                     var modelId=modelList[n].find("a").attr("modelId");
                     showNodes(modelId);
                     sessionStorage.setItem("predictionBrainId",modelId);
