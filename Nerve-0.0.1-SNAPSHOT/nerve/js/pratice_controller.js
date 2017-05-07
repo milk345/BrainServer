@@ -145,9 +145,9 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#model-template").clone();
         $cloneObject.find("a").attr("title",modelName);
-        $cloneObject.style.display="visible";
+        $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
-        $("#model-list:last").after($cloneObject);
+        $("#model-list:last").prev().after($cloneObject);
     }
 
 
@@ -169,15 +169,15 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
             data:JSON.stringify(sendData),
             contentType:"application/json",
             beforeSend:function () {
-                $("#model-data-loading").style.display="block";
+                $scope.loadingModel=true;
                 clearModels();
             },
             success:function (response) {
                 if(response.result=="success"){
-                    $("#model-data-loading").style.display="none";
+                    $scope.loadingModel=false;
                     var brainArray=response.brain_array;
                     if(brainArray.length==0){
-                        $("#empty-data").style.display="visible";
+                        $scope.modelEmptyData=true;
                         return;
                     }
                     for(var i=0;i<brainArray.length;i++)
@@ -189,7 +189,7 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
                 }
             },
             error:function () {
-                $("#model-data-loading").style.display="none";
+                $scope.loadingModel=false;
                 swal("系统错误", "请稍后重试", "error");
             }
         });

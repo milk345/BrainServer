@@ -181,7 +181,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         $cloneObject.find("a").attr("title",modelName);
         $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
-        $("#model-list:last").after($cloneObject);
+        $("#model-list:last").prev().after($cloneObject);
     }
     function addInputNodeItem(inputNodeName){
         var $cloneObject=$(".input-node-template").clone();
@@ -199,9 +199,6 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
     function getBrainByPage(pageIndex){
-        console.log(sessionStorage.getItem("userId"));
-        console.log(typeof(sessionStorage.getItem("userId")));
-
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
             "access_token":sessionStorage.getItem("access_token"),
