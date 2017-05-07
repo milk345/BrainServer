@@ -169,7 +169,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         for(var i=0;i<modelList.length;i++){
             (function(n){
                 modelList[n].onclick = function(){
-                    var modelId=modelList[n].find("a").attr("modelId");
+                    var modelId=modelList[n].find("a")[0].attr("modelId");
                     showNodes(modelId);
                     sessionStorage.setItem("predictionBrainId",modelId);
                 }
@@ -178,9 +178,9 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
     }
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#prediction-model-template").clone();
-        $cloneObject.find("a")[0].innnerHtml=modelName;
+        $cloneObject.find("a")[0].attr("value",modelName);
         $cloneObject.css("display",'inline');
-        $cloneObject.find("a").attr("modelId",modelId);
+        $cloneObject.find("a")[0].attr("modelId",modelId);
         $("#prediction-model-list:last").prev().after($cloneObject);
     }
     function addInputNodeItem(inputNodeName){

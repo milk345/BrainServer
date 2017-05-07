@@ -136,18 +136,18 @@ praticeController.controller("praticeCtrl",["$scope","$state",function($scope,$s
         for(var i=0;i<modelList.length;i++){
             (function(n){
                 modelList[n].onclick = function(){
-                    sessionStorage.setItem("praticeBrainId",modelList[n].find("a").attr("modelId"));
-                    $('#pratice-data-file').value="";
-                    $('#label-data-file').value="";
+                    sessionStorage.setItem("praticeBrainId",modelList[n].find("a")[0].attr("modelId"));
+                    $('#pratice-data-file')[0].value="";
+                    $('#label-data-file')[0].value="";
                 }
             })(i);
         }
     }
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#pratice-model-template").clone();
-        $cloneObject.find("a")[0].innnerHtml=modelName;
+        $cloneObject.find("a")[0].attr("value",modelName);
         $cloneObject.css("display",'inline');
-        $cloneObject.find("a").attr("modelId",modelId);
+        $cloneObject.find("a")[0].attr("modelId",modelId);
         $("#pratice-model-list:last").prev().after($cloneObject);
     }
 
