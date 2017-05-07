@@ -189,7 +189,16 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         if (hasClass(obj, cls)) {
             var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
             obj.className = obj.className.replace(reg, ' ');
+
+            addClass(obj,"model-item");
         }
+    }
+    function hasClass(obj, cls) {
+        return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+    }
+
+    function addClass(obj, cls) {
+        if (!this.hasClass(obj, cls)) obj.className += " " + cls;
     }
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#prediction-model-template").clone();

@@ -149,7 +149,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
                     //清空全部的class
                     for(var j=0; j<modelList.length;j++){
-                        removeClass(modelList[n].getElementsByTagName("li")[0],"model-item");
+                        removeClass(modelList[n].getElementsByTagName("li")[0],"model-item-selected");
                     }
                     //设置选中项
                     modelList[n].getElementsByTagName("li")[0].className="model-item-selected";
@@ -164,7 +164,17 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
         if (hasClass(obj, cls)) {
             var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
             obj.className = obj.className.replace(reg, ' ');
+
+
+            addClass(obj,"model-item");
         }
+    }
+    function hasClass(obj, cls) {
+        return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+    }
+
+    function addClass(obj, cls) {
+        if (!this.hasClass(obj, cls)) obj.className += " " + cls;
     }
     function addModelItem(modelName,modelId){
         var $cloneObject=$("#pratice-model-template").clone();
