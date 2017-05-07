@@ -165,8 +165,8 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
     function setClickEvent(){
-        var modelList=$("#prediction-model-list").children();
-        for(var i=1;i<modelList.length-1;i++){
+        var modelList=$("#prediction-model-list>ul");
+        for(var i=0;i<modelList.length;i++){
             console.log("我在点击",modelList[i]);
             (function(n){
                 modelList[n].onclick = function(){
