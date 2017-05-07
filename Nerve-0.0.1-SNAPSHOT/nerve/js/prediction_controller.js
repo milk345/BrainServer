@@ -175,10 +175,12 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                     sessionStorage.setItem("predictionBrainId",modelId);
 
 
-                    //清空全部的class
-                    modelList.className="model-item";
-                    //设置选中项
-                    modelList[n].className="model-item-selected";
+                        //清空全部的class
+                        for(var j=0; j<modelList.length;j++){
+                            modelList[n].getElementsByTagName("li")[0].className="model-item";
+                        }
+                        //设置选中项
+                        modelList[n].getElementsByTagName("li")[0].className="model-item-selected";
                 }
             })(i);
         }

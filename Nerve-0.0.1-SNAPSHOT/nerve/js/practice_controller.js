@@ -143,9 +143,11 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                     $('#label-data-file')[0].value="";
 
                     //清空全部的class
-                    modelList.className="model-item";
+                    for(var j=0; j<modelList.length;j++){
+                        modelList[n].getElementsByTagName("li")[0].className="model-item";
+                    }
                     //设置选中项
-                    modelList[n].className="model-item-selected";
+                    modelList[n].getElementsByTagName("li")[0].className="model-item-selected";
 
 
 
