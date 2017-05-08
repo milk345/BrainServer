@@ -1,6 +1,7 @@
 var createController = angular.module("nerve.app");
 
 
+//createController.controller("createCtrl",["$scope","$state","oc.lazyLoad",function($scope,$state,$ocLazyLoad){
 createController.controller("createCtrl",["$scope","$state",function($scope,$state){
 
     // 基于准备好的dom，初始化echarts实例

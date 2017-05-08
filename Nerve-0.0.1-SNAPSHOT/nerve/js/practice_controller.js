@@ -3,7 +3,6 @@ var practiceController = angular.module('nerve.app');
 practiceController.controller("practiceCtrl",["$scope","$state",function($scope,$state){
     var pageSize=20;
     getBrainByPage(0);
-    console.log($scope.loadingModel+"我被干");
     $("#upload-data").unbind('click').click(function () {
         fileUpload();
         $scope.loadingModel=false;
@@ -196,7 +195,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
     function getBrainByPage(pageIndex){
 
-        console.log("我已经在执行getBrain")
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
             "access_token":sessionStorage.getItem("accessToken"),
@@ -216,7 +214,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             },
             success:function (response) {
                 if(response.result=="success"){
-                    $scope.loadingModel=false;
+                    $scope.loadingModel="";
                     console.log($scope.loadingModel);
                     clearModels();
                     var brainArray=response.brain_array;
@@ -226,7 +224,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                     }
                     for(var i=0;i<brainArray.length;i++)
                     {
-                        console.log("我在加");
                         addModelItem(brainArray[i].name,brainArray[i].brain_id);
                     }
                     setClickEvent();
@@ -234,7 +231,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                 }
             },
             error:function () {
-                $scope.loadingModel=false;
+                $scope.loadingModel="";
                 swal("系统错误", "请稍后重试", "error");
             }
         });

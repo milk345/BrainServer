@@ -82,11 +82,21 @@ appRouter.config(function($stateProvider,$urlRouterProvider){
                 },
                 "main@index":{
                     templateUrl:"./templates/create.html",
-                    //controller:"createCtrl"
+                    controller:"createCtrl"
                 }
             },
             onExit:function(){
                 organizeWindow();
+            },
+            resolve:{
+                deps:["$ocLazyLoad",function($ocLazyLoad){
+                    return $ocLazyLoad.load({
+                       files: [
+                           "./framework/echarts.js",
+                           "./framework/dataTool.js"
+                       ]
+                    });
+                }]
             }
         })
         .state("index.practice",
