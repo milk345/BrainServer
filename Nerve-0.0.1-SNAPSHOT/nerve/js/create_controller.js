@@ -2,7 +2,7 @@ var createController = angular.module("nerve.app");
 
 
 //createController.controller("createCtrl",["$scope","$state","oc.lazyLoad",function($scope,$state,$ocLazyLoad){
-createController.controller("createCtrl",["$scope","$state",function($scope,$state){
+createController.controller("createCtrl",["$scope","$state","deps",function($scope,$state,deps){
 
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('chart'));

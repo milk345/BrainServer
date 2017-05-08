@@ -5,8 +5,8 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
     getBrainByPage(0);
     $("#upload-data").unbind('click').click(function () {
         fileUpload();
-        $scope.loadingModel=false;
-        console.log($scope.loadingModel);
+        $scope.uploading=false;
+        console.log($scope.uploading);
     })
     function fileUpload() {
         var data = new FormData();
@@ -39,6 +39,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             },
             error:function () {
                 $scope.uploading=false;
+                console.log("我失败了")
                 swal("系统错误", "请稍后重试", "error");
             }
 
@@ -74,6 +75,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             },
             error:function () {
                 $scope.uploading=false;
+                console.log("我失败了")
                 swal("系统错误", "请稍后重试", "error");
             }
 
@@ -214,7 +216,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             },
             success:function (response) {
                 if(response.result=="success"){
-                    $scope.loadingModel="";
+                    $scope.loadingModel=false;
                     console.log($scope.loadingModel);
                     clearModels();
                     var brainArray=response.brain_array;
@@ -231,7 +233,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                 }
             },
             error:function () {
-                $scope.loadingModel="";
+                $scope.loadingModel=false;
                 swal("系统错误", "请稍后重试", "error");
             }
         });

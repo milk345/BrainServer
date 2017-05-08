@@ -3,7 +3,7 @@ var predictionController = angular.module('nerve.app');
 predictionController.controller("predictionCtrl",["$scope","$state",function($scope,$state){
     var pageSize=20;
 
-    getPredictionBrainByPage(0);
+    getBrainByPage(0);
     $("#predict-data").unbind('click').click(function () {
         predict();
     });
@@ -225,7 +225,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
 
-    function getPredictionBrainByPage(pageIndex){
+    function getBrainByPage(pageIndex){
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
             "access_token":sessionStorage.getItem("accessToken"),
