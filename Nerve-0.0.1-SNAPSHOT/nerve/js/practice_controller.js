@@ -129,7 +129,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
         var modelList=$("#practice-model-list").find("ul");
         if(modelList.length>1){
             //模板不删
-            for(var i=1;i<modelList.length;i++){
+            for(var i=1;i<modelList.length-1;i++){
                 modelList[i].remove();
             }
         }

@@ -12,15 +12,15 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         var inputNodeList=document.getElementById("input-node-list").getElementsByTagName("li");
         var inputArray="";
         for(var i=0;i<inputNodeList.length;i++){
-            if(inputNodeList[i].getElementsByName("input")[0].value==null){
+            if(inputNodeList[i].getElementsByTagName("input")[0].value==null){
                 swal("参数不全", "请补充所有参数(null)", "error");
                 return;
             }
-            if(inputNodeList[i].getElementsByName("input")[0].value==""){
+            if(inputNodeList[i].getElementsByTagName("input")[0].value==""){
                 swal("参数不全", "请补充所有参数(空字符串)", "error");
                 return;
             }
-            inputArray+=inputNodeList[i].getElementsByName("input")[0].value;
+            inputArray+=inputNodeList[i].getElementsByTagName("input")[0].value;
             if(i<inputNodeList.length-1) inputArray+=",";
         }
         var sendData={
@@ -45,7 +45,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
                 for(var i=0;i<outputArray.length;i++)
                 {
-                    outputNodeList[i].getElementsByName("input")[0].value==outputArray[i]
+                    outputNodeList[i].getElementsByTagName("input")[0].value==outputArray[i]
                 }
 
                 swal("参数模拟成功！", "", "success");
@@ -143,7 +143,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         var modelList=$("#prediction-model-list").find("ul");
         if(modelList.length>1){
             //模板不删
-            for(var i=1;i<modelList.length;i++){
+            for(var i=1;i<modelList.length-1;i++){
                 modelList[i].remove();
             }
         }
