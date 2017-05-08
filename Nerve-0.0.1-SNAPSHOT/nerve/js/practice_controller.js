@@ -4,9 +4,9 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
     var pageSize=20;
     getBrainByPage(0);
     $("#upload-data").unbind('click').click(function () {
-        fileUpload();
-        $scope.uploading=false;
+        $scope.uploading=true;
         $scope.$apply();
+        fileUpload();
     })
     function fileUpload() {
         var data = new FormData();
@@ -30,7 +30,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             processData: false,
             contentType: false,
             beforeSend:function () {
-                $scope.uploading=true;
             },
             success:function (response) {
                 $scope.uploading=false;
@@ -66,7 +65,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             processData: false,
             contentType: false,
             beforeSend:function () {
-                $scope.uploading=true;
             },
             success:function (response) {
                 $scope.uploading=false;
@@ -216,6 +214,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             success:function (response) {
                 if(response.result=="success"){
                     $scope.loadingModel=false;
+                    $scope.$apply();
                     clearModels();
                     var brainArray=response.brain_array;
                     if(brainArray.length==0){

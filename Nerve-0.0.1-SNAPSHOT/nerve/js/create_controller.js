@@ -1,8 +1,17 @@
-var createController = angular.module("nerve.app");
+var createController = angular.module("nerve.app",["oc.lazyLoad"]);
+//var createController = angular.module("nerve.app");
 
 
-//createController.controller("createCtrl",["$scope","$state","oc.lazyLoad",function($scope,$state,$ocLazyLoad){
-createController.controller("createCtrl",["$scope","$state",function($scope,$state){
+createController.controller("createCtrl",["$scope","$state","oclazyLoad",function($scope,$state,$ocLazyLoad){
+//createController.controller("createCtrl",["$scope","$state",function($scope,$state){
+
+
+
+    $ocLazyLoad.load([
+            "./framework/echarts.js",
+            "./framework/dataTool.js"
+        ]
+    );
 
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('chart'));
