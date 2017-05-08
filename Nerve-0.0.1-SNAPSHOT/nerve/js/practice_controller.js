@@ -67,7 +67,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             contentType: false,
             beforeSend:function () {
                 $scope.uploading=true;
-                $scope.$apply();
             },
             success:function (response) {
                 $scope.uploading=false;
@@ -212,7 +211,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             contentType:"application/json",
             beforeSend:function () {
                 $scope.loadingModel=true;
-                $scope.$apply();
                 clearModels();
             },
             success:function (response) {
