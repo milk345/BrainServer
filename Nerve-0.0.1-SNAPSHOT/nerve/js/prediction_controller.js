@@ -11,7 +11,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
         var inputNodeList=document.getElementById("input-node-list").getElementsByTagName("li");
         var inputArray="";
-        for(var i=0;i<inputNodeList.length;i++){
+        for(var i=1;i<inputNodeList.length;i++){
             if(inputNodeList[i].getElementsByTagName("input")[0].value==null){
                 swal("参数不全", "请补充所有参数(null)", "error");
                 return;
@@ -43,7 +43,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                 var outputArray=response.split(",");
                 var outputNodeList=document.getElementById("output-node-list").getElementsByTagName("li");
 
-                for(var i=0;i<outputArray.length;i++)
+                for(var i=1;i<outputArray.length;i++)
                 {
                     outputNodeList[i].getElementsByTagName("input")[0].value==outputArray[i]
                 }
