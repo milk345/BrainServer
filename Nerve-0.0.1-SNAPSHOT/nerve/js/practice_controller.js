@@ -31,7 +31,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             contentType: false,
             beforeSend:function () {
                 $scope.uploading=true;
-                $scope.$apply();
             },
             success:function (response) {
                 $scope.uploading=false;
