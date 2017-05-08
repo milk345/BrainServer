@@ -9,7 +9,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
     });
     function predict(){
 
-        var inputNodeList=$(".input-node-list").find("li");
+        var inputNodeList=document.getElementById("input-node-list").getElementsByTagName("li");
         var inputArray="";
         for(var i=0;i<inputNodeList.length;i++){
             if(inputNodeList[i].getElementsByName("input")[0].value==null){
@@ -41,7 +41,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             success:function (response) {
                 if(response=="wrong_format") swal("参数格式错误", "请检查模型", "error");
                 var outputArray=response.split(",");
-                var outputNodeList=$(".output-node-list").find("li");
+                var outputNodeList=document.getElementById("output-node-list").getElementsByTagName("li");
 
                 for(var i=0;i<outputArray.length;i++)
                 {
@@ -101,6 +101,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             },
             success:function (response) {
                 if(response.result=="success"){
+                    clearNodes();
                     $scope.loadingNode=false;
                     $scope.$apply();
 
