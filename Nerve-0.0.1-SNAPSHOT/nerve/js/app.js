@@ -1,4 +1,4 @@
-var appRouter = angular.module('nerve.app',['ui.router']);
+var appRouter = angular.module('nerve.app',['ui.router',"oc.lazyLoad"]);
 appRouter.config(function($stateProvider,$urlRouterProvider){
 
 

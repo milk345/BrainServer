@@ -74,8 +74,8 @@
       <file leaf-file-name="practice.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/practice.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.785714">
-              <caret line="8" column="47" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="47" />
+            <state vertical-scroll-proportion="-5.428571">
+              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -106,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/js/create_controller.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="94" selection-start-line="4" selection-start-column="94" selection-end-line="4" selection-end-column="94" />
+              <caret line="3" column="74" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -115,8 +115,8 @@
       <file leaf-file-name="practice_controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/practice_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6412078">
-              <caret line="235" column="32" selection-start-line="235" selection-start-column="32" selection-end-line="235" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.4937833">
+              <caret line="217" column="57" selection-start-line="217" selection-start-column="57" selection-end-line="217" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -146,7 +146,7 @@
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="20" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="20" />
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -232,10 +232,10 @@
         <option value="$PROJECT_DIR$/css/styles.css" />
         <option value="$PROJECT_DIR$/templates/create.html" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/templates/prediction.html" />
         <option value="$PROJECT_DIR$/js/create_controller.js" />
         <option value="$PROJECT_DIR$/js/prediction_controller.js" />
+        <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/templates/practice.html" />
         <option value="$PROJECT_DIR$/js/practice_controller.js" />
       </list>
@@ -851,14 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.107143">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/prediction.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.821428">
@@ -904,14 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="20" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/prediction_controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.6101695">
@@ -923,15 +907,31 @@
     <entry file="file://$PROJECT_DIR$/js/create_controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="94" selection-start-line="4" selection-start-column="94" selection-end-line="4" selection-end-column="94" />
+          <caret line="3" column="74" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.107143">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/practice.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.785714">
-          <caret line="8" column="47" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="47" />
+        <state vertical-scroll-proportion="-5.428571">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -959,8 +959,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/practice_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6412078">
-          <caret line="235" column="32" selection-start-line="235" selection-start-column="32" selection-end-line="235" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.4937833">
+          <caret line="217" column="57" selection-start-line="217" selection-start-column="57" selection-end-line="217" selection-end-column="57" />
           <folding />
         </state>
       </provider>

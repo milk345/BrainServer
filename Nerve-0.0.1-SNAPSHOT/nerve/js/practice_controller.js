@@ -26,7 +26,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             url: '../brain/uploadPraticeData',
             type: 'POST',
             data: data,
-            dataType: 'string',
             cache: false,
             processData: false,
             contentType: false,
@@ -62,7 +61,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             url: '../brain/uploadLabelData',
             type: 'POST',
             data: data,
-            dataType: 'string',
             cache: false,
             processData: false,
             contentType: false,
@@ -210,14 +208,14 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             data:JSON.stringify(sendData),
             contentType:"application/json",
             beforeSend:function () {
-                $scope.loadingPracticeModel=true;
+                $scope.loadingModel=true;
                 console.log($scope.loadingModel);
                 clearModels();
             },
             success:function (response) {
                 if(response.result=="success"){
-                    $scope.loadingPracticeModel=false;
-                    console.log($scope.loadingModel);
+                    $scope.loadingModel=false;
+                    console.log($scope.loadingModel+"我想消失");
                     clearModels();
                     var brainArray=response.brain_array;
                     if(brainArray.length==0){
@@ -233,7 +231,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                 }
             },
             error:function () {
-                $scope.loadingPracticeModel=false;
+                $scope.loadingModel=false;
                 swal("系统错误", "请稍后重试", "error");
             }
         });
