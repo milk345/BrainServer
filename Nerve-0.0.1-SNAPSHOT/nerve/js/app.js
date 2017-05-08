@@ -90,12 +90,11 @@ appRouter.config(function($stateProvider,$urlRouterProvider){
             },
             resolve:{
                 deps:["$ocLazyLoad",function($ocLazyLoad){
-                    return $ocLazyLoad.load({
-                       files: [
+                    return $ocLazyLoad.load( [
                            "./framework/echarts.js",
                            "./framework/dataTool.js"
                        ]
-                    });
+                    );
                 }]
             }
         })

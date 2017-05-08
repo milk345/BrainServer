@@ -6,7 +6,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
     $("#upload-data").unbind('click').click(function () {
         fileUpload();
         $scope.uploading=false;
-        console.log($scope.uploading);
+        $scope.$apply();
     })
     function fileUpload() {
         var data = new FormData();
@@ -31,14 +31,16 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             contentType: false,
             beforeSend:function () {
                 $scope.uploading=true;
+                $scope.$apply();
             },
             success:function (response) {
                 $scope.uploading=false;
+                $scope.$apply();
                 swal("已上传！", "", "success");
             },
             error:function () {
                 $scope.uploading=false;
-                console.log("我失败了")
+                $scope.$apply();
                 swal("系统错误", "请稍后重试", "error");
             }
 
@@ -66,14 +68,16 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             contentType: false,
             beforeSend:function () {
                 $scope.uploading=true;
+                $scope.$apply();
             },
             success:function (response) {
                 $scope.uploading=false;
+                $scope.$apply();
                 swal("已上传！", "", "success");
             },
             error:function () {
                 $scope.uploading=false;
-                console.log("我失败了")
+                $scope.$apply();
                 swal("系统错误", "请稍后重试", "error");
             }
 
@@ -209,17 +213,18 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             contentType:"application/json",
             beforeSend:function () {
                 $scope.loadingModel=true;
-                console.log($scope.loadingModel);
+                $scope.$apply();
                 clearModels();
             },
             success:function (response) {
                 if(response.result=="success"){
                     $scope.loadingModel=false;
-                    console.log($scope.loadingModel+"我想消失");
+                    $scope.$apply();
                     clearModels();
                     var brainArray=response.brain_array;
                     if(brainArray.length==0){
                         $scope.modelEmptyData=true;
+                        $scope.$apply();
                         return;
                     }
                     for(var i=0;i<brainArray.length;i++)
@@ -232,6 +237,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             },
             error:function () {
                 $scope.loadingModel=false;
+                $scope.$apply();
                 swal("系统错误", "请稍后重试", "error");
             }
         });

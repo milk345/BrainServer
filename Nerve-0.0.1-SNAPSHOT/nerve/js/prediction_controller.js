@@ -98,13 +98,13 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             beforeSend:function () {
                 //$("#node-data-loading").style.display="block";
                 $scope.loadingNode=true;
+                $scope.$apply();
                 clearNodes();
             },
             success:function (response) {
                 if(response.result=="success"){
                     $scope.loadingNode=false;
-                    //$("#input-node-list").style.display="visible";
-                    //$("#output-node-list").style.display="visible";
+                    $scope.$apply();
 
                     var inputArray=response.input_array;
                     for(var i=0;i<inputArray.length;i++)
@@ -120,6 +120,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
                     if(outputArray.length==0||inputArray.length==0){
                         $scope.nodeEmptyData=true;
+                        $scope.$apply();
                     }
 
 
@@ -127,6 +128,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             },
             error:function () {
                 $scope.loadingNode=false;
+                $scope.$apply();
                 swal("系统错误", "请稍后重试", "error");
             }
         });
@@ -240,15 +242,18 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             contentType:"application/json",
             beforeSend:function () {
                 $scope.loadingModel=true;
+                $scope.$apply();
                 clearModels();
             },
             success:function (response) {
                 if(response.result=="success"){
                     $scope.loadingModel=false;
+                    $scope.$apply();
                     clearModels();
                     var brainArray=response.brain_array;
                     if(brainArray.length==0){
                         $scope.modelEmptyData=true;
+                        $scope.$apply();
                         return;
                     }
                     for(var i=0;i<brainArray.length;i++)
@@ -261,6 +266,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             },
             error:function () {
                 $scope.loadingModel=false;
+                $scope.$apply();
                 swal("系统错误", "请稍后重试", "error");
             }
         });

@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en"  >
+<script src="./framework/angular-1.4.9/angular.js"></script>
+<script src="./framework/jquery-3.1.0.min.js"></script>
+<body id="body"  >
+<div style="width: 0; height: 0;overflow: scroll" >
+
+</div>
 
 
-    <body id="body"  >
-        <div style="width: 0; height: 0;overflow: scroll" >
-            <div style="width: 100px; height: 100px">
-cuosiudouh
-        </div>
-        </div>
-    </body>
+<!--测试ng-show: -->
+<div ng-app="test" >
 
+    <div  ng-show="myVar"ng-controller="testCtrl" class="ng-hide">
+        <h1>Welcome</h1>
+        <p>Welcome to my home.</p>
+    </div>
+    <p>{{milk+1111111}}</p>
+    <!--<input type="checkbox" ng-model="myVar">-->
+    <p></p>
+</div>
+<button id="bu" >TOGGLE</button>
+</body>
+
+<script type="text/javascript">
+    var testController = angular.module("test",[]);
+    testController.controller("testCtrl",["$scope",function($scope){
+        $scope.myVar=true;
+        $scope.myVar=false;
+
+
+        $("#bu").unbind('click').click(
+               function () {
+            console.log($scope.myVar);
+            $scope.myVar=!$scope.myVar;
+            $scope.milk=12;
+                   $scope.$apply();
+        })
+
+        $scope.togglesss=function(){
+            console.log($scope.myVar);
+            alert("sssss");
+            $scope.myVar=!$scope.myVar;
+
+        }
+    }]);
+//    testController.controller("testCtrl",function($scope){
+//        $scope.myVar=false;
+//        $scope.toggle=function(){
+//            $scope.myVar=!$scope.myVar;
+//        }
+//    });
+
+
+</script>
 </html>
-create_controller.js:369 <gexf xmlns="http://www.gexf.net/1.2draft" version="1.2"
-                               xmlns:viz="http://www.gexf.net/1.2draft/viz"
-                               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                               xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd">
-    <meta lastmodifieddate="2014-01-30"><creator>Gephi 0.8.1</creator><description></description></meta>
-    <graph defaultedgetype="undirected" mode="static"><nodes>
-        <node id="1" label="Myriel"> <attvalues> <attvalue for="modularity_class" value="0"></attvalue>
-        </attvalues> <viz:size value="28.685715"></viz:size><viz:position x="10" y="10" z="0.0">
-
-        </viz:position><viz:color r="235" g="81" b="72"></viz:color></node>
-        <node id="2" label="Myriel"> <attvalues> <attvalue for="modularity_class" value="0">
-
-        </attvalue> </attvalues> <viz:size value="28.685715"></viz:size><viz:position x="20" y="20" z="0.0">
-
-        </viz:position><viz:color r="235" g="81" b="72"></viz:color></node></nodes><edges></edges></graph></gexf>
