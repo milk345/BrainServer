@@ -39,7 +39,10 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
             },
             success:function (response) {
-                if(response.result=="wrong_format") swal("参数格式错误", "请检查模型", "error");
+                if(response.result=="wrong_format") {
+                    swal("参数格式错误", "请检查模型", "error");
+                }
+                console.log(response.result);
                 var outputArray=response.result.split(",");
                 var outputNodeList=document.getElementById("output-node-list").getElementsByTagName("li");
 
