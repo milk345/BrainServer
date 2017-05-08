@@ -5,7 +5,6 @@ appController.controller("indexCtrl",["$scope","$state",function($scope,$state){
 
 
         })
-
 }]);
 
 appController.controller("homeCtrl",["$scope","$state",function($scope,$state){

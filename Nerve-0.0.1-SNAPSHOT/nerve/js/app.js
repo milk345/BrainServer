@@ -1,45 +1,45 @@
 var appRouter = angular.module('nerve.app',['ui.router',"oc.lazyLoad"]);
 
 //为了懒加载
-appRouter.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvider",
-    function ($provide, $compileProvider, $controllerProvider, $filterProvider) {
-        appRouter.controller = $controllerProvider.register;
-        appRouter.directive = $compileProvider.directive;
-        appRouter.filter = $filterProvider.register;
-        appRouter.factory = $provide.factory;
-        appRouter.service = $provide.service;
-        appRouter.constant = $provide.constant;
-    }]);
-appRouter.config(function ($httpProvider) {
-
-    $httpProvider.defaults.transformRequest = function (obj) {
-        var str = [];
-        for (var p in obj) {
-            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-        }
-        return str.join("&");
-    };
-
-    $httpProvider.defaults.headers.post = {
-        'Content-Type': 'application/x-www-form-urlencoded; charser=UTF-8'
-    }
-
-});
-appRouter.constant('Modules_Config', [
-    {
-        name: 'treeControl',
-        serie: true,
-        files: []
-    }
-]);
-appRouter.config(["$ocLazyLoadProvider","Modules_Config",routeFn]);
-function routeFn($ocLazyLoadProvider,Modules_Config){
-    $ocLazyLoadProvider.config({
-        debug:false,
-        events:false,
-        modules:Modules_Config
-    });
-};
+//appRouter.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvider",
+//    function ($provide, $compileProvider, $controllerProvider, $filterProvider) {
+//        appRouter.controller = $controllerProvider.register;
+//        appRouter.directive = $compileProvider.directive;
+//        appRouter.filter = $filterProvider.register;
+//        appRouter.factory = $provide.factory;
+//        appRouter.service = $provide.service;
+//        appRouter.constant = $provide.constant;
+//    }]);
+//appRouter.config(function ($httpProvider) {
+//
+//    $httpProvider.defaults.transformRequest = function (obj) {
+//        var str = [];
+//        for (var p in obj) {
+//            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+//        }
+//        return str.join("&");
+//    };
+//
+//    $httpProvider.defaults.headers.post = {
+//        'Content-Type': 'application/x-www-form-urlencoded; charser=UTF-8'
+//    }
+//
+//});
+//appRouter.constant('Modules_Config', [
+//    {
+//        name: 'treeControl',
+//        serie: true,
+//        files: []
+//    }
+//]);
+//appRouter.config(["$ocLazyLoadProvider","Modules_Config",routeFn]);
+//function routeFn($ocLazyLoadProvider,Modules_Config){
+//    $ocLazyLoadProvider.config({
+//        debug:false,
+//        events:false,
+//        modules:Modules_Config
+//    });
+//};
 
 
 
@@ -142,15 +142,15 @@ appRouter.config(function($stateProvider,$urlRouterProvider){
             onExit:function(){
                 organizeWindow();
             },
-            resolve:{
-                deps:["$ocLazyLoad",function($ocLazyLoad){
-                    return $ocLazyLoad.load( [
-                           "./framework/echarts.js",
-                           "./framework/dataTool.js"
-                       ]
-                    );
-                }]
-            }
+            //resolve:{
+            //    deps:["$ocLazyLoad",function($ocLazyLoad){
+            //        return $ocLazyLoad.load( [
+            //               "./framework/echarts.js",
+            //               "./framework/dataTool.js"
+            //           ]
+            //        );
+            //    }]
+            //}
         })
         .state("index.practice",
         {
