@@ -3,12 +3,12 @@ var appRouter = angular.module('nerve.app',['ui.router',"oc.lazyLoad"]);
 //为了懒加载
 appRouter.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvider",
     function ($provide, $compileProvider, $controllerProvider, $filterProvider) {
-        app.controller = $controllerProvider.register;
-        app.directive = $compileProvider.directive;
-        app.filter = $filterProvider.register;
-        app.factory = $provide.factory;
-        app.service = $provide.service;
-        app.constant = $provide.constant;
+        appRouter.controller = $controllerProvider.register;
+        appRouter.directive = $compileProvider.directive;
+        appRouter.filter = $filterProvider.register;
+        appRouter.factory = $provide.factory;
+        appRouter.service = $provide.service;
+        appRouter.constant = $provide.constant;
     }]);
 appRouter.config(function ($httpProvider) {
 
