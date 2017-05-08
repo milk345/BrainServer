@@ -210,13 +210,13 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             data:JSON.stringify(sendData),
             contentType:"application/json",
             beforeSend:function () {
-                $scope.loadingModel=true;
+                $scope.loadingPracticeModel=true;
                 console.log($scope.loadingModel);
                 clearModels();
             },
             success:function (response) {
                 if(response.result=="success"){
-                    $scope.loadingModel=false;
+                    $scope.loadingPracticeModel=false;
                     console.log($scope.loadingModel);
                     clearModels();
                     var brainArray=response.brain_array;
@@ -233,7 +233,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                 }
             },
             error:function () {
-                $scope.loadingModel=false;
+                $scope.loadingPracticeModel=false;
                 swal("系统错误", "请稍后重试", "error");
             }
         });
