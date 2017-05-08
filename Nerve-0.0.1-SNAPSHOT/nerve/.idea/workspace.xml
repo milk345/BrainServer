@@ -112,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="practice_controller.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="practice_controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/practice_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.2881355">
-              <caret line="166" column="9" selection-start-line="164" selection-start-column="8" selection-end-line="166" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.18095239">
+              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -132,10 +132,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prediction_controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="prediction_controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/prediction_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.91238093">
+            <state vertical-scroll-proportion="-20.677965">
               <caret line="188" column="9" selection-start-line="188" selection-start-column="9" selection-end-line="188" selection-end-column="9" />
               <folding />
             </state>
@@ -206,8 +206,8 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/templates/prediction.html" />
         <option value="$PROJECT_DIR$/templates/practice.html" />
-        <option value="$PROJECT_DIR$/js/practice_controller.js" />
         <option value="$PROJECT_DIR$/js/prediction_controller.js" />
+        <option value="$PROJECT_DIR$/js/practice_controller.js" />
       </list>
     </option>
   </component>
@@ -913,18 +913,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/practice_controller.js">
+    <entry file="file://$PROJECT_DIR$/js/prediction_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.2881355">
-          <caret line="166" column="9" selection-start-line="164" selection-start-column="8" selection-end-line="166" selection-end-column="9" />
+        <state vertical-scroll-proportion="-20.677965">
+          <caret line="188" column="9" selection-start-line="188" selection-start-column="9" selection-end-line="188" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/prediction_controller.js">
+    <entry file="file://$PROJECT_DIR$/js/practice_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91238093">
-          <caret line="188" column="9" selection-start-line="188" selection-start-column="9" selection-end-line="188" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.18095239">
+          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
           <folding />
         </state>
       </provider>

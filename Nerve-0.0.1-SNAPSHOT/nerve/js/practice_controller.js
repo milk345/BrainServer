@@ -3,6 +3,7 @@ var practiceController = angular.module('nerve.app');
 practiceController.controller("practiceCtrl",["$scope","$state",function($scope,$state){
     var pageSize=20;
     getBrainByPage(0);
+    console.log($scope.loadingModel+"我被干");
     $("#upload-data").unbind('click').click(function () {
         fileUpload();
         $scope.loadingModel=false;
