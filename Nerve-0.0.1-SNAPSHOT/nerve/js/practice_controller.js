@@ -218,7 +218,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             success:function (response) {
                 if(response.result=="success"){
                     $scope.loadingModel=false;
-                    $scope.$apply();
                     clearModels();
                     var brainArray=response.brain_array;
                     if(brainArray.length==0){

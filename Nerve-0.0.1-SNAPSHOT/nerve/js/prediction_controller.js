@@ -97,7 +97,6 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             contentType:"application/json",
             beforeSend:function () {
                 //$("#node-data-loading").style.display="block";
-                $scope.$apply();
                 clearNodes();
             },
             success:function (response) {
@@ -241,7 +240,6 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             contentType:"application/json",
             beforeSend:function () {
                 $scope.loadingModel=true;
-                $scope.$apply();
                 clearModels();
             },
             success:function (response) {
