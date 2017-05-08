@@ -82,7 +82,7 @@ appRouter.config(function($stateProvider,$urlRouterProvider){
                 },
                 "main@index":{
                     templateUrl:"./templates/create.html",
-                    controller:"createCtrl"
+                    //controller:"createCtrl"
                 }
             },
             onExit:function(){
