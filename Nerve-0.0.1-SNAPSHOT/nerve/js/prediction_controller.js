@@ -3,24 +3,24 @@ var predictionController = angular.module('nerve.app');
 predictionController.controller("predictionCtrl",["$scope","$state",function($scope,$state){
     var pageSize=20;
 
-    getBrainByPage(0);
+    getPredictionBrainByPage(0);
     $("#predict-data").unbind('click').click(function () {
         predict();
-    })
+    });
     function predict(){
 
         var inputNodeList=$(".input-node-list").find("li");
         var inputArray="";
         for(var i=0;i<inputNodeList.length;i++){
-            if(inputNodeList[i].find("input").value==null){
+            if(inputNodeList[i].getElementsByName("input")[0].value==null){
                 swal("参数不全", "请补充所有参数(null)", "error");
                 return;
             }
-            if(inputNodeList[i].find("input").value==""){
+            if(inputNodeList[i].getElementsByName("input")[0].value==""){
                 swal("参数不全", "请补充所有参数(空字符串)", "error");
                 return;
             }
-            inputArray+=inputNodeList[i].find("input").value;
+            inputArray+=inputNodeList[i].getElementsByName("input")[0].value;
             if(i<inputNodeList.length-1) inputArray+=",";
         }
         var sendData={
@@ -45,7 +45,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
                 for(var i=0;i<outputArray.length;i++)
                 {
-                    outputNodeList[i].find("input").value==outputArray[i]
+                    outputNodeList[i].getElementsByName("input")[0].value==outputArray[i]
                 }
 
                 swal("参数模拟成功！", "", "success");
@@ -222,7 +222,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
 
-    function getBrainByPage(pageIndex){
+    function getPredictionBrainByPage(pageIndex){
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
             "access_token":sessionStorage.getItem("accessToken"),
@@ -242,6 +242,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             success:function (response) {
                 if(response.result=="success"){
                     $scope.loadingModel=false;
+                    clearModels();
                     var brainArray=response.brain_array;
                     if(brainArray.length==0){
                         $scope.modelEmptyData=true;

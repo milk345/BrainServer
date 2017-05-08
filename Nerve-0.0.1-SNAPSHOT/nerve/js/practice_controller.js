@@ -2,10 +2,11 @@ var practiceController = angular.module('nerve.app');
 
 practiceController.controller("practiceCtrl",["$scope","$state",function($scope,$state){
     var pageSize=20;
-    this.getBrainByPage(0);
+    getBrainByPage(0);
     $("#upload-data").unbind('click').click(function () {
         fileUpload();
         $scope.loadingModel=false;
+        console.log($scope.loadingModel);
     })
     function fileUpload() {
         var data = new FormData();
@@ -214,6 +215,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                 if(response.result=="success"){
                     $scope.loadingModel=false;
                     console.log($scope.loadingModel);
+                    clearModels();
                     var brainArray=response.brain_array;
                     if(brainArray.length==0){
                         $scope.modelEmptyData=true;
