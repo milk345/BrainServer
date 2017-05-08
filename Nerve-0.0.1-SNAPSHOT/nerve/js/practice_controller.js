@@ -19,8 +19,6 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
 
         data.append("file",document.querySelector("#practice-data-file").files[0]);
-
-
         data.append("user_id",sessionStorage.getItem("userId"));
         data.append("access_token",sessionStorage.getItem("accessToken"));
         data.append("brain_id",sessionStorage.getItem("practiceBrainId"));
@@ -50,13 +48,12 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
 
         //标签数据
-        data = new FormData($('#label-data-file'));
+        data = new FormData();
 
         if(data.valueOf("file")==""){
             swal("未选择文件", "请选择label数据文件", "error");
         }
-        console.log(data.valueOf("file"));
-
+        data.append("file",document.querySelector("#label-data-file").files[0]);
         data.append("user_id",sessionStorage.getItem("userId"));
         data.append("access_token",sessionStorage.getItem("accessToken"));
         data.append("brain_id",sessionStorage.getItem("practiceBrainId"));
@@ -129,7 +126,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
 
     function clearModels(){
-        var modelList=$(".model-list").find("ul");
+        var modelList=$("#practice-model-list").find("ul");
         if(modelList.length>1){
             //模板不删
             for(var i=1;i<modelList.length;i++){
@@ -141,7 +138,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
 
     function setClickEvent(){
-        var modelList=document.getElementById("pratice-model-list").getElementsByTagName("ul");
+        var modelList=document.getElementById("practice-model-list").getElementsByTagName("ul");
         for(var i=1;i<modelList.length;i++){
             (function(n){
                 var liForClick= modelList[n].getElementsByTagName("li")[0]
@@ -162,6 +159,11 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
                 }
             })(i);
+        }
+
+
+        if(modelList.length>1){
+            modelList[1].getElementsByTagName("li")[0].click();
         }
     }
     function removeClass(obj, cls) {
@@ -185,7 +187,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
         $cloneObject.find("a input").attr("value",modelName);
         $cloneObject.css("display",'inline');
         $cloneObject.find("a").attr("modelId",modelId);
-        $("#pratice-model-list").children().eq(-2).after($cloneObject);
+        $("#practice-model-list").children().eq(-2).after($cloneObject);
     }
 
 

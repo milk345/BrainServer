@@ -139,7 +139,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
 
     function clearModels(){
-        var modelList=$(".model-list").find("ul");
+        var modelList=$("#prediction-model-list").find("ul");
         if(modelList.length>1){
             //模板不删
             for(var i=1;i<modelList.length;i++){
@@ -183,6 +183,9 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                         modelList[n].getElementsByTagName("li")[0].className="model-item-selected";
                 }
             })(i);
+        }
+        if(modelList.length>1){
+            modelList[1].getElementsByTagName("li")[0].click();
         }
     }
     function removeClass(obj, cls) {
