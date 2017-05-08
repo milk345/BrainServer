@@ -146,7 +146,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                 liForClick.onclick = function(){
                     var modelId=liForClick.getElementsByTagName("a")[0].getAttribute("modelId");
                     sessionStorage.setItem("practiceBrainId",modelId);
-                    $('#pratice-data-file')[0].value="";
+                    $('#practice-data-file')[0].value="";
                     $('#label-data-file')[0].value="";
 
                     //清空全部的class
