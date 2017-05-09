@@ -117,7 +117,6 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                     var outputArray=response.output_array;
                     for(var i=0;i<outputArray.length;i++)
                     {
-                        console.log(outputArray);
                         addOutputNodeItem(outputArray[i].name);
                     }
 
@@ -216,13 +215,13 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         $("#prediction-model-list").children().eq(-2).after($cloneObject);
     }
     function addInputNodeItem(inputNodeName){
-        var $cloneObject=$(".input-node-template").clone();
+        var $cloneObject=$(".input-node-template")[0].clone();
         $cloneObject.find("span")[0].innerHTML=inputNodeName;
         $cloneObject.css("display",'inline');
         $(".input-node-template").after($cloneObject);
     }
     function addOutputNodeItem(outputNodeName){
-        var $cloneObject=$(".output-node-template").clone();
+        var $cloneObject=$(".output-node-template")[0].clone();
         $cloneObject.find("span")[0].innerHTML=outputNodeName;
         $cloneObject.css("display",'inline');
         $(".output-node-template").after($cloneObject);
