@@ -117,6 +117,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                     var outputArray=response.output_array;
                     for(var i=0;i<outputArray.length;i++)
                     {
+                        console.log(outputArray);
                         addOutputNodeItem(outputArray[i].name);
                     }
 
@@ -181,7 +182,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
                         //清空全部的class
                         for(var j=0; j<modelList.length;j++){
-                           removeClass(modelList[j].getElementsByTagName("li")[0],"model-item-selected");
+                            removeClass(modelList[j].getElementsByTagName("li")[0],"model-item-selected");
                         }
                         //设置选中项
                         modelList[n].getElementsByTagName("li")[0].className="model-item-selected";
