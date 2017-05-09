@@ -215,16 +215,16 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         $("#prediction-model-list").children().eq(-2).after($cloneObject);
     }
     function addInputNodeItem(inputNodeName){
-        var $cloneObject=$(".input-node-template")[0].clone();
+        var $cloneObject=$("#input-node-template").clone();
         $cloneObject.find("span")[0].innerHTML=inputNodeName;
         $cloneObject.css("display",'inline');
-        $(".input-node-template").after($cloneObject);
+        $("#input-node-template").after($cloneObject);
     }
     function addOutputNodeItem(outputNodeName){
-        var $cloneObject=$(".output-node-template")[0].clone();
+        var $cloneObject=$("#output-node-template").clone();
         $cloneObject.find("span")[0].innerHTML=outputNodeName;
         $cloneObject.css("display",'inline');
-        $(".output-node-template").after($cloneObject);
+        $("#output-node-template").after($cloneObject);
     }
 
 
