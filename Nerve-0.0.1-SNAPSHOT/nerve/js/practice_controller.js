@@ -8,6 +8,9 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
         $scope.$apply();
         fileUpload();
     })
+    $("#practice-now").unbind('click').click(function () {
+        practiceNow();
+    })
     function fileUpload() {
         var data = new FormData();
 
@@ -192,7 +195,52 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
 
 
+    function practiceNow(){
 
+        var sendData={
+            "user_id":sessionStorage.getItem("userId"),
+            "access_token":sessionStorage.getItem("accessToken"),
+            "brain_id":sessionStorage.getItem("practiceBrainId")
+        };
+        $.ajax({
+            url:"../brain/praticeBrain",
+            type:"post",
+            dataType:"json",
+            data:JSON.stringify(sendData),
+            contentType:"application/json",
+            beforeSend:function () {
+                $scope.practicing=true;
+            },
+            success:function (response) {
+                if(response.result=="success"){
+                    $scope.practicing=false;
+                    $scope.$apply();
+                    swal("训练成功", "感谢您的支持！", "success");
+                    return;
+                }
+                if(response.result=="lack_data"){
+                    $scope.practicing=false;
+                    $scope.$apply();
+                    swal("这个模型还没有上传数据", "请按照模板上传训练数据", "error");
+                    return;
+                }
+                if(response.result=="wrong_brain"){
+                    $scope.practicing=false;
+                    $scope.$apply();
+                    swal("模型错误", "可能这个模型的ID被搞错了，请刷新重试", "error");
+                    return;
+                }
+                $scope.practicing=false;
+                $scope.$apply();
+                swal("系统错误", "请稍后重试", "error");
+            },
+            error:function () {
+                $scope.practicing=false;
+                $scope.$apply();
+                swal("系统错误", "请稍后重试", "error");
+            }
+        });
+    }
     function getBrainByPage(pageIndex){
 
         var sendData={

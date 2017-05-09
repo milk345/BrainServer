@@ -27,23 +27,23 @@
                     </div>
                     <div id="practice-model-list">
 
-                            <!--单独的item,作为模板-->
-                              <ul id="pratice-model-template"  style="display: none">
-                                    <li  style="padding:7px 0px" class="model-item">
-                                        <a title="哈哈" alt="哈哈哈" style="padding-left:20px;text-decoration: none;position:relative;color:#6b6b6b;">
-                                            <input class="model-item-name size-m radius" style="width:80%;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;font-size: 14px" readonly="true" value="顶顶顶顶" type="text">
-                                            <i class="icon-dots" style="position:absolute;top:-10px;right:-38px;">⋮</i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="model-item-operate">
-                                            <ol>
-                                                <li class="edit-model-item" onclick="showEdit(this)">修改</li>
-                                                <li class="del-model-item">删除</li>
-                                            </ol>
-                                        </div>
-                                    </li>
-                              </ul>
+                        <!--单独的item,作为模板-->
+                        <ul id="pratice-model-template"  style="display: none">
+                            <li  style="padding:7px 0px" class="model-item">
+                                <a title="哈哈" alt="哈哈哈" style="padding-left:20px;text-decoration: none;position:relative;color:#6b6b6b;">
+                                    <input class="model-item-name size-m radius" style="width:80%;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;font-size: 14px" readonly="true" value="顶顶顶顶" type="text">
+                                    <i class="icon-dots" style="position:absolute;top:-10px;right:-38px;">⋮</i>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="model-item-operate">
+                                    <ol>
+                                        <li class="edit-model-item" onclick="showEdit(this)">修改</li>
+                                        <li class="del-model-item">删除</li>
+                                    </ol>
+                                </div>
+                            </li>
+                        </ul>
 
 
                         <div style=" float: left;position: relative;left: 50%;bottom: 20px">
@@ -85,8 +85,14 @@
 
             <input id="practice-data-file" style="margin:40px auto 20px auto;display: block;width: 20%" type="file"  name="file" value="上传训练数据"/>
             <input id="label-data-file" style="margin:40px auto 20px auto;display: block;width: 20%" type="file"  name="file" value="上传标签数据" />
-            <input id="upload-data" class="button button-3d button-primary button-rounded" style="margin:40px auto 20px auto;" type="button" value="开始上传" />
-            <img ng-show="uploading" class="ng-hide" style="width: 40px;height: 40px;"  src='images/dataLoading.gif'>
+            <div >
+                <input id="upload-data" class="button button-3d button-primary button-rounded" style="margin:40px auto 20px auto;" type="button" value="开始上传" />
+                <img ng-show="uploading" class="ng-hide" style="width: 40px;height: 40px;"  src='images/dataLoading.gif'>
+            </div>
+            <div>
+                <input id="practice-now" class="button button-3d button-primary button-rounded" style="margin:40px auto 20px auto;" type="button" value="现在训练" />
+                <img ng-show="practicing" class="ng-hide" style="width: 40px;height: 40px;"  src='images/dataLoading.gif'>
+            </div>
 
             <div style="width: 100%; ">
                 <img class="img-responsive" style="width: 50% ;margin:50px auto 200px auto ;" src="images/brain.gif">
