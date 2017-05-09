@@ -6,7 +6,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
     $("#upload-data").unbind('click').click(function () {
         $scope.uploading=true;
         $scope.$apply();
-        fileUpload();
+        practiceFileUpload();
     })
     $("#practice-now").unbind('click').click(function () {
         practiceNow();
