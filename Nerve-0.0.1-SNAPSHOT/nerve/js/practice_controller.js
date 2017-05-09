@@ -11,51 +11,10 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
     $("#practice-now").unbind('click').click(function () {
         practiceNow();
     })
-    function fileUpload() {
-        var data = new FormData();
-
-        if(data.valueOf("file")==""){
-            swal("未选择文件", "请选择pratice数据文件", "error");
-        }
-
-
-
-
-        data.append("file",document.querySelector("#practice-data-file").files[0]);
-        data.append("user_id",sessionStorage.getItem("userId"));
-        data.append("access_token",sessionStorage.getItem("accessToken"));
-        data.append("brain_id",sessionStorage.getItem("practiceBrainId"));
-        $.ajax({
-            url: '../brain/uploadPraticeData',
-            type: 'POST',
-            data: data,
-            cache: false,
-            processData: false,
-            contentType: false,
-            beforeSend:function () {
-            },
-            success:function (response) {
-                $scope.uploading=false;
-                $scope.$apply();
-                swal("已上传！", "", "success");
-            },
-            error:function () {
-                $scope.uploading=false;
-                $scope.$apply();
-                swal("系统错误", "请稍后重试", "error");
-            }
-
-        })
-
-
-
-
+    function labelFileUpload() {
         //标签数据
         data = new FormData();
 
-        if(data.valueOf("file")==""){
-            swal("未选择文件", "请选择label数据文件", "error");
-        }
         data.append("file",document.querySelector("#label-data-file").files[0]);
         data.append("user_id",sessionStorage.getItem("userId"));
         data.append("access_token",sessionStorage.getItem("accessToken"));
@@ -81,6 +40,38 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             }
 
         })
+    }
+    function practiceFileUpload() {
+        var data = new FormData();
+
+        data.append("file",document.querySelector("#practice-data-file").files[0]);
+        data.append("user_id",sessionStorage.getItem("userId"));
+        data.append("access_token",sessionStorage.getItem("accessToken"));
+        data.append("brain_id",sessionStorage.getItem("practiceBrainId"));
+        $.ajax({
+            url: '../brain/uploadPraticeData',
+            type: 'POST',
+            data: data,
+            cache: false,
+            processData: false,
+            contentType: false,
+            beforeSend:function () {
+            },
+            success:function (response) {
+                labelFileUpload();
+            },
+            error:function () {
+                $scope.uploading=false;
+                $scope.$apply();
+                swal("系统错误", "请稍后重试", "error");
+            }
+
+        })
+
+
+
+
+
     }
 
 
