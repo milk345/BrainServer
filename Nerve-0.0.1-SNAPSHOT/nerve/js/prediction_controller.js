@@ -48,7 +48,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
                 for(var i=1;i<outputArray.length;i++)
                 {
-                    outputNodeList[i].getElementsByTagName("input")[0].value==outputArray[i]
+                    outputNodeList[i].getElementsByTagName("input")[0].value=outputArray[i]
                 }
 
                 swal("参数模拟成功！", "", "success");
@@ -218,13 +218,13 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         var $cloneObject=$("#input-node-template").clone();
         $cloneObject.find("span")[0].innerHTML=inputNodeName;
         $cloneObject.css("display",'inline');
-        $("#input-node-template").after($cloneObject);
+        $("#input-node-list:last").after($cloneObject);
     }
     function addOutputNodeItem(outputNodeName){
         var $cloneObject=$("#output-node-template").clone();
         $cloneObject.find("span")[0].innerHTML=outputNodeName;
         $cloneObject.css("display",'inline');
-        $("#output-node-template").after($cloneObject);
+        $("#output-node-list:last").after($cloneObject);
     }
 
 

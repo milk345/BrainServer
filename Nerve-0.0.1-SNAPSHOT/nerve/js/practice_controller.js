@@ -203,7 +203,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
                 $scope.practicing=true;
             },
             success:function (response) {
-                if(response.result=="success"){
+                if(response.result=="ok"){
                     $scope.practicing=false;
                     $scope.$apply();
                     swal("训练成功", "感谢您的支持！", "success");
