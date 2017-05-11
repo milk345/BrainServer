@@ -44,13 +44,11 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                     return;
                 }
                 var outputArray=response.result.split(" ");
-                console.log(outputArray.length)
                 var outputNodeList=document.getElementById("output-node-list").getElementsByTagName("li");
 
                 for(var i=1;i<outputArray.length;i++)
                 {
-                    console.log(outputArray[i]);
-                    outputNodeList[i].getElementsByTagName("input")[0].value=outputArray[i];
+                    outputNodeList[i].getElementsByTagName("input")[0].value=outputArray[i-1];
                 }
 
                 swal("参数模拟成功！", "", "success");
