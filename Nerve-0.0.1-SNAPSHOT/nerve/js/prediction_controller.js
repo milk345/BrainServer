@@ -23,6 +23,11 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
             inputArray+=inputNodeList[i].getElementsByTagName("input")[0].value;
             if(i<inputNodeList.length-1) inputArray+=",";
         }
+
+
+        console.log(inputArray);
+
+
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
             "access_token":sessionStorage.getItem("accessToken"),
@@ -48,6 +53,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
 
                 for(var i=0;i<outputArray.length;i++)
                 {
+                    console.log(outputArray[i])
                     outputNodeList[i+1].getElementsByTagName("input")[0].value=outputArray[i];
                 }
 
