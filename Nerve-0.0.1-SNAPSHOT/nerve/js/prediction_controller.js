@@ -218,13 +218,13 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
         var $cloneObject=$("#input-node-template").clone();
         $cloneObject.find("span")[0].innerHTML=inputNodeName;
         $cloneObject.css("display",'inline');
-        $("#input-node-list:last").after($cloneObject);
+        $("#input-node-list").find("li:last").after($cloneObject);
     }
     function addOutputNodeItem(outputNodeName){
         var $cloneObject=$("#output-node-template").clone();
         $cloneObject.find("span")[0].innerHTML=outputNodeName;
         $cloneObject.css("display",'inline');
-        $("#output-node-list:last").after($cloneObject);
+        $("#output-node-list:last").find("li:last").after($cloneObject);
     }
 
 

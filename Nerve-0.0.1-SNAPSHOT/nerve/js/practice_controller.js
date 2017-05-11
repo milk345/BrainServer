@@ -187,7 +187,8 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
 
 
     function practiceNow(){
-
+        $scope.practicing=true;
+        $scope.$apply();
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
             "access_token":sessionStorage.getItem("accessToken"),
@@ -200,7 +201,7 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
             data:JSON.stringify(sendData),
             contentType:"application/json",
             beforeSend:function () {
-                $scope.practicing=true;
+
             },
             success:function (response) {
                 if(response.result=="ok"){
