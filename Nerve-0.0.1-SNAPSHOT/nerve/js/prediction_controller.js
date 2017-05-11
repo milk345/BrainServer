@@ -46,9 +46,9 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                 var outputArray=response.result.split(" ");
                 var outputNodeList=document.getElementById("output-node-list").getElementsByTagName("li");
 
-                for(var i=1;i<outputArray.length;i++)
+                for(var i=0;i<outputArray.length;i++)
                 {
-                    outputNodeList[i].getElementsByTagName("input")[0].value=outputArray[i-1];
+                    outputNodeList[i+1].getElementsByTagName("input")[0].value=outputArray[i];
                 }
 
                 swal("参数模拟成功！", "", "success");
