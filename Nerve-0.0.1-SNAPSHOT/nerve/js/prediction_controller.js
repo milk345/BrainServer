@@ -48,7 +48,7 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                     swal("参数格式错误", "请检查模型", "error");
                     return;
                 }
-                var outputArray=response.result.split(" ");
+                var outputArray=response.result.split("  ");
                 var outputNodeList=document.getElementById("output-node-list").getElementsByTagName("li");
 
                 for(var i=0;i<outputArray.length;i++)
