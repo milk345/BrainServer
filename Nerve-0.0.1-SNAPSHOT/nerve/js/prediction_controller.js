@@ -52,8 +52,11 @@ predictionController.controller("predictionCtrl",["$scope","$state",function($sc
                 var outputNodeList=document.getElementById("output-node-list").getElementsByTagName("li");
 
                 for(var i=0;i<outputArray.length;i++){
-                    if(outputArray[i]=="") outputArray.splice(i,1);
-                    i--;
+                    if(outputArray[i]=="") {
+                        outputArray.splice(i,1);
+                        i--;
+                    }
+
                 }
                 for(var i=0;i<outputArray.length;i++)
                 {
