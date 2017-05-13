@@ -92,6 +92,11 @@
             <div>
                 <input id="practice-now" class="button button-3d button-primary button-rounded" style="margin:40px auto 20px auto;" type="button" value="现在训练" />
                 <img ng-show="practicing" class="ng-hide" style="width: 40px;height: 40px;"  src='images/dataLoading.gif'>
+                <div class="input-group">
+                    <span class="input-group-addon" >训练次数</span>
+                    <input id="limit" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                           type="text" class="form-control" aria-describedby="basic-addon3">
+                </div>
             </div>
 
             <div style="width: 100%; ">

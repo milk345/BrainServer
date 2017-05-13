@@ -189,10 +189,16 @@ practiceController.controller("practiceCtrl",["$scope","$state",function($scope,
     function practiceNow(){
         $scope.practicing=true;
         $scope.$apply();
+        limit=document.getElementById("limit").value;
+        if(limit==""){
+            swal("您还没告诉我训练几次哦", "请填写训练次数", "error");
+            return;
+        }
         var sendData={
             "user_id":sessionStorage.getItem("userId"),
             "access_token":sessionStorage.getItem("accessToken"),
-            "brain_id":sessionStorage.getItem("practiceBrainId")
+            "brain_id":sessionStorage.getItem("practiceBrainId"),
+            "limit":limit
         };
         $.ajax({
             url:"../brain/praticeBrain",
